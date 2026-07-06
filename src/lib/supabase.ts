@@ -1,0 +1,24 @@
+import { createClient } from "@supabase/supabase-js";
+
+const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+/**
+ * Public client — read-only access (RLS: public select on artifacts).
+ * Safe to use in Server Components and API routes for reads.
+ */
+export const supabase = createClient(url, anonKey);
+
+/**
+ * Admin client — server-only. Bypasses RLS for writes
+ * (catalog ingestion, embedding updates). Never import in client code.
+ */
+export function supabaseAdmin() {
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!serviceKey) {
+    throw new Error("SUPABASE_SERVICE_ROLE_KEY is not set");
+  }
+  return createClient(url, serviceKey, {
+    auth: { persistSession: false },
+  });
+}

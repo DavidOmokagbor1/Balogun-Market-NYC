@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────
+   Àṣà Archive design tokens
+   Ground: deep adire indigo (the dye vat, not tech-dark-mode)
+   Accent: aged brass/gold — museum plaque, not luxury cliché
+   Type: Marcellus for display (engraved capitals),
+         Spectral for reading, mono small-caps for catalog data
+   ───────────────────────────────────────────────────────── */
+
+@theme {
+  --color-vat: #0f1728; /* page ground — deep indigo, near-black */
+  --color-indigo: #1d2b4a; /* raised surfaces, cards */
+  --color-indigo-line: #35466e; /* hairlines, borders */
+  --color-ivory: #f0e9d8; /* primary text — undyed cotton */
+  --color-ivory-dim: #b4ad9c; /* secondary text */
+  --color-brass: #c2913a; /* accent — plaque brass */
+
+  --font-display: var(--font-marcellus), "Marcellus", serif;
+  --font-body: var(--font-spectral), "Spectral", Georgia, serif;
+  --font-catalog: var(--font-plex-mono), "IBM Plex Mono", monospace;
+}
+
+html {
+  background-color: var(--color-vat);
+  color: var(--color-ivory);
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Catalog label: the recurring typographic signature.
+   Letterspaced mono small caps over a brass hairline. */
+.catalog-label {
+  font-family: var(--font-catalog);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+
+::selection {
+  background-color: var(--color-brass);
+  color: var(--color-vat);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
