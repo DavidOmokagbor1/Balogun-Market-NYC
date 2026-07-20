@@ -18,10 +18,25 @@ export function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [bgIndex, setBgIndex] = useState(0);
+  const [stats, setStats] = useState<{
+    works: number;
+    origins: number;
+    named_makers: number;
+    categories: number;
+  } | null>(null);
 
   // Live Pexels photos — cycle through them as hero background
   const { photos } = usePexelsPhotos("african fashion editorial model", 5);
   const heroSrc = photos.length > 0 ? photos[bgIndex % photos.length].url : FALLBACK_IMG;
+
+  useEffect(() => {
+    fetch("/api/stats")
+      .then((r) => r.json())
+      .then((d) => {
+        if (typeof d.works === "number") setStats(d);
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -161,7 +176,7 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Bottom stats bar */}
+      {/* Bottom stats bar — live counts from the archive, never fictional */}
       <motion.div
         style={{ position: "absolute", bottom: 0, left: 0, right: 0, borderTop: "1px solid rgba(201,168,106,0.12)", padding: "1.25rem clamp(1.25rem, 5vw, 5rem)", display: "flex", gap: "clamp(1.5rem, 4vw, 4rem)", flexWrap: "wrap", zIndex: 10 }}
         initial={{ opacity: 0 }}
@@ -169,10 +184,10 @@ export function HeroSection() {
         transition={{ duration: 0.8, delay: 1.5 }}
       >
         {[
-          { n: "2,400+", l: "Works Archived" },
-          { n: "340", l: "Artists Featured" },
-          { n: "54", l: "African Countries" },
-          { n: "1960", l: "Archive Begins" },
+          { n: stats ? String(stats.works) : "—", l: "Works Archived" },
+          { n: stats ? String(stats.named_makers) : "—", l: "Named Makers" },
+          { n: stats ? String(stats.origins) : "—", l: "Places of Origin" },
+          { n: stats ? String(stats.categories) : "—", l: "Categories" },
         ].map(({ n, l }) => (
           <div key={l}>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 400, color: "#C9A86A" }}>{n}</div>

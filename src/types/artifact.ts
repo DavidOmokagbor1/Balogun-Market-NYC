@@ -51,3 +51,24 @@ export interface CatalogDraft {
   description: string;
   confidence_notes: string;
 }
+
+/** Creative brief from the Native AI brain (Discovery). */
+export interface FashionBrainBrief {
+  concept_title: string;
+  vision: string;
+  future_signal: string;
+  design_moves: string[];
+  heritage_lineage: string;
+  runway_moment: string;
+  mood_words: string[];
+}
+
+export interface DiscoverResponse {
+  query: string;
+  brief: FashionBrainBrief;
+  heritage: ArtifactMatch[];
+  meta: {
+    heritage_count: number;
+    mode: "creative_grounded" | "creative_open";
+  };
+}

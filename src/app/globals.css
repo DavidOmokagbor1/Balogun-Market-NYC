@@ -167,6 +167,7 @@ input::placeholder {
   .asa-footer-grid { grid-template-columns: 1fr 1fr !important; }
 
   .asa-ai-results-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .asa-brain-split { grid-template-columns: 1fr !important; }
 
   .asa-masonry-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
