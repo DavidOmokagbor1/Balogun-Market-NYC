@@ -7,3 +7,11 @@ out/
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# Supabase CLI local cache
+supabase/.temp/
+
+# Editor / agent tooling (not part of the app)
+.agents/
+.cursor/
+skills-lock.json

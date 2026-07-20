@@ -1,49 +1,197 @@
+/* Fonts — per design-reference fonts.css. Never add or swap. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────
    Àṣà Archive design tokens
-   Ground: deep adire indigo (the dye vat, not tech-dark-mode)
-   Accent: aged brass/gold — museum plaque, not luxury cliché
-   Type: Marcellus for display (engraved capitals),
-         Spectral for reading, mono small-caps for catalog data
+   Source of truth: /design-reference (Figma Make export)
+   Ground: near-black #0A0A0A · Text: warm bone #F5F1E8
+   Accent: aged gold #C9A86A (the ONLY accent color)
+   Radius: 0 everywhere — sharp corners are a core decision
    ───────────────────────────────────────────────────────── */
 
-@theme {
-  --color-vat: #0f1728; /* page ground — deep indigo, near-black */
-  --color-indigo: #1d2b4a; /* raised surfaces, cards */
-  --color-indigo-line: #35466e; /* hairlines, borders */
-  --color-ivory: #f0e9d8; /* primary text — undyed cotton */
-  --color-ivory-dim: #b4ad9c; /* secondary text */
-  --color-brass: #c2913a; /* accent — plaque brass */
+:root {
+  --font-size: 16px;
+  --background: #0A0A0A;
+  --foreground: #F5F1E8;
+  --card: #111111;
+  --card-foreground: #F5F1E8;
+  --primary: #F5F1E8;
+  --primary-foreground: #0A0A0A;
+  --secondary: #161616;
+  --secondary-foreground: #F5F1E8;
+  --muted: #1A1A1A;
+  --muted-foreground: #888880;
+  --accent: #C9A86A;
+  --accent-foreground: #0A0A0A;
+  --border: rgba(245, 241, 232, 0.08);
+  --input: transparent;
+  --input-background: #1A1A1A;
+  --ring: #C9A86A;
+  --radius: 0rem;
+}
 
-  --font-display: var(--font-marcellus), "Marcellus", serif;
-  --font-body: var(--font-spectral), "Spectral", Georgia, serif;
-  --font-catalog: var(--font-plex-mono), "IBM Plex Mono", monospace;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+
+  /* Legacy token names used by pre-restore pages (archive, upload,
+     detail). Remapped to the design-reference palette so every page
+     shares one system without per-component restyling. */
+  --color-vat: var(--background);
+  --color-indigo: var(--card);
+  --color-indigo-line: var(--border);
+  --color-ivory: var(--foreground);
+  --color-ivory-dim: var(--muted-foreground);
+  --color-brass: var(--accent);
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-catalog: 'DM Mono', monospace;
 }
 
 html {
-  background-color: var(--color-vat);
-  color: var(--color-ivory);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  cursor: none;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Catalog label: the recurring typographic signature.
-   Letterspaced mono small caps over a brass hairline. */
-.catalog-label {
-  font-family: var(--font-catalog);
-  font-size: 0.6875rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-brass);
+a,
+button {
+  cursor: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+img {
+  display: block;
+}
+
+input::placeholder {
+  color: rgba(245, 241, 232, 0.25);
+}
+
+:focus-visible {
+  outline: 1px solid rgba(201, 168, 106, 0.5);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A86A;
 }
 
 ::selection {
-  background-color: var(--color-brass);
-  color: var(--color-vat);
+  background: rgba(201, 168, 106, 0.25);
+  color: #F5F1E8;
+}
+
+/* Catalog label: recurring typographic signature.
+   Letterspaced mono small caps in aged gold. */
+.catalog-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ── Responsive rules from design-reference App.tsx ── */
+
+.asa-desktop-nav {
+  display: flex;
+}
+.asa-hamburger {
+  display: none;
+}
+
+/* ── TABLET (≤ 900px) ── */
+@media (max-width: 900px) {
+  .asa-desktop-nav { display: none !important; }
+  .asa-hamburger { display: flex !important; }
+
+  .asa-collections-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: auto !important;
+  }
+  .asa-collections-grid > * { grid-column: span 1 !important; grid-row: span 1 !important; height: 280px !important; }
+
+  .asa-timeline-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .asa-timeline-sidebar { position: relative !important; top: 0 !important; }
+
+  .asa-artists-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .asa-artists-grid > * { height: 360px !important; }
+
+  .asa-exhibition-grid { grid-template-columns: 1fr !important; }
+
+  .asa-membership-grid { grid-template-columns: 1fr !important; }
+
+  .asa-journal-grid { grid-template-columns: 1fr !important; }
+  .asa-journal-grid > *:first-child { grid-row: span 1 !important; }
+
+  .asa-footer-grid { grid-template-columns: 1fr 1fr !important; }
+
+  .asa-ai-results-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  .asa-masonry-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  .asa-artist-detail-grid { grid-template-columns: 1fr !important; }
+
+  .asa-lightbox-inner { flex-direction: column !important; gap: 1.5rem !important; }
+  .asa-lightbox-img { max-width: 100% !important; max-height: 50vh !important; }
+}
+
+/* ── MOBILE (≤ 600px) ── */
+@media (max-width: 600px) {
+  .asa-collections-grid { grid-template-columns: 1fr !important; }
+  .asa-collections-grid > * { height: 260px !important; }
+
+  .asa-artists-grid { grid-template-columns: 1fr !important; }
+
+  .asa-masonry-grid { grid-template-columns: 1fr !important; }
+
+  .asa-ai-results-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  .asa-footer-grid { grid-template-columns: 1fr !important; }
+
+  /* custom cursor off on touch */
+  body { cursor: auto; }
+  a, button { cursor: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

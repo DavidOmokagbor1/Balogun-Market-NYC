@@ -12,6 +12,8 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@supabase/supabase-js": "^2.47.0",
+    "lucide-react": "^1.25.0",
+    "motion": "^12.42.2",
     "next": "^15.1.0",
     "openai": "^4.77.0",
     "react": "^19.0.0",
