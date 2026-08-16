@@ -2,7 +2,7 @@
   "name": "asa-archive",
   "version": "0.1.0",
   "private": true,
-  "description": "Àṣà Archive — AI-native digital archive for African fashion and cultural heritage. Semantic search, AI provenance narratives, and image-to-catalog automation.",
+  "description": "Balogun Market NYC — an AI-native archive and marketplace for African fashion, art, and cultural luxury.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
