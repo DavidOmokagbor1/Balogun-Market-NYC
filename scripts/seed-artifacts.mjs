@@ -1,5 +1,5 @@
 /**
- * Seed Àṣà Archive with a small curated collection, then generate
+ * Seed Balogun Market NYC with a small curated collection, then generate
  * provenance narratives via the running Next.js /api/provenance route.
  *
  * Usage (dev server must be running on :3000):
@@ -103,7 +103,7 @@ const SEEDS = [
     known_history: [
       "Bamana bògòlanfini: cotton cloth patterned with fermented mud dyes and plant fixatives; motifs traditionally taught within family and community ateliers.",
       "Ségou-region attribution based on motif vocabulary and dye tone per the NGO's catalog card; artist name not listed.",
-      "Held by a Bamako cultural NGO before transfer to Àṣà Archive in 2025; card notes domestic and ceremonial textile use without a named wearer.",
+      "Held by a Bamako cultural NGO before transfer to Balogun Market NYC in 2025; card notes domestic and ceremonial textile use without a named wearer.",
       "Gaps: artist name, exact village workshop, and continuous ownership chain before the NGO are unknown.",
     ].join(" "),
   },
@@ -181,7 +181,7 @@ const SEEDS = [
       "Beaded coronet in Yoruba court-associated form; glass seed beads on a shaped frame.",
       "Regional attribution (Ile-Ife / broader Yoruba) from the collector's notes; not verified by a palace inventory.",
       "Collector states mid-20th-century make; no artist name or commissioning Oba recorded in the loan file.",
-      "Long-term loan to Àṣà Archive, 2025; ownership remains with the private collector.",
+      "Long-term loan to Balogun Market NYC, 2025; ownership remains with the private collector.",
       "Gaps: maker, commissioning authority, and continuous custody before the present collector are undocumented.",
     ].join(" "),
   },

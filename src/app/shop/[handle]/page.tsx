@@ -11,21 +11,21 @@ export async function generateMetadata({
 }: {
   params: Promise<{ handle: string }>;
 }): Promise<Metadata> {
-  if (!isShopifyConfigured) return { title: "Shop | Àṣà Archive" };
+  if (!isShopifyConfigured) return { title: "Shop" };
 
   try {
     const { handle } = await params;
     const product = await getProduct(handle);
-    if (!product) return { title: "Piece not found | Àṣà Archive" };
+    if (!product) return { title: "Piece not found" };
     return {
-      title: `${product.title} | Àṣà Archive`,
+      title: product.title,
       description: product.description.slice(0, 160),
       openGraph: product.featuredImage
         ? { images: [{ url: product.featuredImage.url }] }
         : undefined,
     };
   } catch {
-    return { title: "Shop | Àṣà Archive" };
+    return { title: "Shop" };
   }
 }
 
@@ -61,7 +61,7 @@ export default async function ProductPage({
           className="catalog-label"
           style={{ textDecoration: "none" }}
         >
-          ← Àṣà Editions
+          ← Balogun Market Editions
         </Link>
 
         <div

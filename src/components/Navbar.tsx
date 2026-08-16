@@ -51,11 +51,11 @@ export function Navbar() {
         {/* Logo */}
         <a href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, letterSpacing: "0.35em", color: "#F5F1E8", textTransform: "uppercase", lineHeight: 1 }}>
-              ÀṢÀ
+            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.95rem", fontWeight: 600, letterSpacing: "0.18em", color: "#F5F1E8", textTransform: "uppercase", lineHeight: 1 }}>
+              Balogun Market
             </span>
             <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.45rem", letterSpacing: "0.2em", color: "#C9A86A", textTransform: "uppercase" }}>
-              African Fashion & Art
+              NYC · African Fashion & Art
             </span>
           </div>
         </a>

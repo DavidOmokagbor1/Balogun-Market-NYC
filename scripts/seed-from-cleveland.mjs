@@ -77,7 +77,7 @@ function knownHistory(o) {
   if (o.credit) bits.push(`Credit line: ${o.credit}.`);
   if (o.url) bits.push(`Open-access source record: ${o.url} (Cleveland Museum of Art).`);
   bits.push(
-    "This Àṣà Archive entry is catalogued from Cleveland Museum of Art Open Access data for demonstration of provenance-first archival practice. Image rehosted in Àṣà Storage; object remains in CMA collection — not a physical transfer."
+    "This Balogun Market NYC entry is catalogued from Cleveland Museum of Art Open Access data for demonstration of provenance-first archival practice. Image rehosted in Balogun Market NYC storage; object remains in CMA collection — not a physical transfer."
   );
   bits.push(
     "Gaps: where the CMA record does not name a maker, do not invent one. State cultural attribution and what the record leaves unknown."

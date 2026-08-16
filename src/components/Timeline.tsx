@@ -11,7 +11,7 @@ const MILESTONES = [
   { year: "2008", title: "Arise Magazine & Platform Era", desc: "Africa's first luxury fashion magazine launches. Lagos, Nairobi, and Cape Town emerge as fashion capitals. The African Fashion Week circuit begins.", country: "Pan-African", color: "#8B5E3C" },
   { year: "2015", title: "Digital Revolution", desc: "African designers launch directly to global audiences via Instagram. Maxhosa Africa, Christie Brown, and Studio 189 gain international acclaim.", country: "Continent-wide", color: "#0F5F4B" },
   { year: "2019", title: "Beyoncé's Black Is King Moment", desc: "African design becomes global pop culture's visual language. Designers from 20+ African countries participate in the landmark visual album.", country: "Pan-African", color: "#C9A86A" },
-  { year: "2026", title: "The Digital Museum Era", desc: "ÀṢÀ Collector launches — archiving Africa's fashion and art legacy with AI curation, virtual exhibitions, and global collector networks.", country: "The Future", color: "#C9A86A" },
+  { year: "2026", title: "The Digital Museum Era", desc: "Balogun Market NYC launches — archiving Africa's fashion and art legacy with AI curation, virtual exhibitions, and global collector networks.", country: "The Future", color: "#C9A86A" },
 ];
 
 export function Timeline() {

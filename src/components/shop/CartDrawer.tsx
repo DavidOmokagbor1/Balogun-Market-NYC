@@ -149,7 +149,8 @@ export function CartDrawer() {
                       color: "rgba(245,241,232,0.4)",
                     }}
                   >
-                    Explore limited editions and objects selected by Àṣà.
+                    Explore limited editions and objects selected by Balogun
+                    Market NYC.
                   </p>
                   <Link
                     href="/shop"

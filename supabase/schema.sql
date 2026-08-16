@@ -1,5 +1,5 @@
 -- ============================================================
--- Àṣà Archive · Supabase schema
+-- Balogun Market NYC · Supabase schema
 -- Postgres + pgvector foundation for semantic collection search
 -- Run this in the Supabase SQL editor (Dashboard → SQL → New query)
 -- ============================================================

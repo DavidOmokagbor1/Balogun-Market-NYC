@@ -8,9 +8,9 @@ import {
 import type { ShopifyProduct } from "@/types/shopify";
 
 export const metadata: Metadata = {
-  title: "The Shop | Àṣà Archive",
+  title: "The Shop",
   description:
-    "Limited editions, African luxury objects, and collector pieces selected by Àṣà.",
+    "Limited editions, African luxury objects, and collector pieces selected by Balogun Market NYC.",
 };
 
 export const dynamic = "force-dynamic";
@@ -44,7 +44,7 @@ export default async function ShopPage() {
       >
         <div style={{ maxWidth: 1400, margin: "0 auto" }}>
           <p className="catalog-label" style={{ margin: "0 0 1.2rem" }}>
-            Àṣà Editions · Powered by Shopify
+            Balogun Market Editions · Powered by Shopify
           </p>
           <h1
             style={{

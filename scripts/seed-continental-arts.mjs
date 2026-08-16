@@ -1,6 +1,6 @@
 /**
  * Continental arts expansion — sculpture, masks, metalwork, beadwork
- * across Africa for Àṣà Archive (same map logic as textiles).
+ * across Africa for Balogun Market NYC (same map logic as textiles).
  *
  *   node scripts/seed-continental-arts.mjs
  * Requires: .env.local + dev server on :3000 (for /api/provenance).
@@ -387,7 +387,7 @@ async function provenance(id, known_history) {
 }
 
 async function main() {
-  console.log("Àṣà Continental Arts Map");
+  console.log("Balogun Market NYC Continental Arts Map");
   console.log("Regions: West · Sahel · Central · East · Horn · Southern\n");
   console.log(`Seeding ${ARTS.length} exemplars…\n`);
 

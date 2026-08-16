@@ -49,8 +49,8 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div style={{ marginBottom: "1.5rem" }}>
-              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.75rem", fontWeight: 600, letterSpacing: "0.15em", color: "#F5F1E8", textTransform: "uppercase" }}>ÀṢÀ</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.5rem", letterSpacing: "0.25em", color: "#C9A86A", textTransform: "uppercase", marginTop: "2px" }}>African Fashion & Art Collector</div>
+              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.75rem", fontWeight: 600, letterSpacing: "0.12em", color: "#F5F1E8", textTransform: "uppercase" }}>Balogun Market NYC</div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", color: "#C9A86A", textTransform: "uppercase", marginTop: "2px" }}>African Fashion, Art & Luxury</div>
             </div>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", lineHeight: 1.8, color: "rgba(245,241,232,0.35)", maxWidth: "280px", margin: "0 0 2rem" }}>
               The Digital Louvre of African Fashion & Art. Archiving the past, amplifying the present, collecting the future.
@@ -88,7 +88,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "2rem", flexWrap: "wrap", gap: "1rem" }}>
           <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.55rem", letterSpacing: "0.1em", color: "rgba(245,241,232,0.2)" }}>
-            © 2026 ÀṢÀ — African Fashion & Art Collector. All rights reserved.
+            © 2026 Balogun Market NYC. All rights reserved.
           </span>
           <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.55rem", letterSpacing: "0.1em", color: "rgba(245,241,232,0.2)" }}>
             Rooted in Africa. Present everywhere.

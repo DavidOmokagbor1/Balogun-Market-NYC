@@ -1,10 +1,11 @@
-# Àṣà Archive
+# Balogun Market NYC
 
-**A living archive of African fashion, textiles, and art — where provenance is the core interaction.**
+**African fashion, art, and cultural luxury — connecting heritage, contemporary design, and collectors from New York to the world.**
 
 AI-native from the ground up: semantic search over the collection (RAG on pgvector), provenance narratives written by Claude from verified facts, and image-to-catalog automation using Claude vision.
 
-> *Àṣà* (Yoruba): custom, culture, tradition — that which is selected and practiced until it becomes heritage.
+Balogun Market NYC combines a provenance-first digital archive, Native AI
+fashion intelligence, and a Shopify-powered collector marketplace.
 
 ## Architecture
 

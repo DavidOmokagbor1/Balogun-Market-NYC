@@ -7,9 +7,12 @@ import { CartProvider } from "@/components/shop/CartProvider";
 import { CartDrawer } from "@/components/shop/CartDrawer";
 
 export const metadata: Metadata = {
-  title: "Àṣà Archive",
+  title: {
+    default: "Balogun Market NYC",
+    template: "%s | Balogun Market NYC",
+  },
   description:
-    "A living archive of African fashion, textiles, and art — where every piece carries its provenance.",
+    "African fashion, art, and cultural luxury — connecting heritage, contemporary design, and collectors from New York to the world.",
 };
 
 export default function RootLayout({

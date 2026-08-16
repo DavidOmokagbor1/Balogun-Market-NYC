@@ -1,5 +1,5 @@
 /**
- * Continental textile expansion — Africa-wide coverage for Àṣà Archive.
+ * Continental textile expansion — Africa-wide coverage for Balogun Market NYC.
  *
  *   node scripts/seed-continental-textiles.mjs
  * Requires: .env.local + dev server on :3000 (for /api/provenance).
@@ -317,7 +317,7 @@ async function provenance(id, known_history) {
 }
 
 async function main() {
-  console.log("Àṣà Continental Textile Map");
+  console.log("Balogun Market NYC Continental Textile Map");
   console.log("Regions: West · Sahel · Central · East · Southern · North · Indian Ocean\n");
   console.log(`Seeding ${TEXTILES.length} exemplars…\n`);
 
