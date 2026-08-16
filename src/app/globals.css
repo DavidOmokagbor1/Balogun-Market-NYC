@@ -139,11 +139,19 @@ input::placeholder {
 .asa-hamburger {
   display: none;
 }
+.asa-mobile-actions {
+  display: none;
+}
 
 /* ── TABLET (≤ 900px) ── */
 @media (max-width: 900px) {
   .asa-desktop-nav { display: none !important; }
   .asa-hamburger { display: flex !important; }
+  .asa-mobile-actions { display: flex !important; }
+
+  .asa-shop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .asa-product-layout { grid-template-columns: 1fr !important; }
+  .asa-product-info { position: static !important; }
 
   .asa-collections-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -179,6 +187,9 @@ input::placeholder {
 
 /* ── MOBILE (≤ 600px) ── */
 @media (max-width: 600px) {
+  .asa-shop-grid { grid-template-columns: 1fr !important; }
+  .asa-product-gallery { grid-template-columns: 1fr !important; }
+
   .asa-collections-grid { grid-template-columns: 1fr !important; }
   .asa-collections-grid > * { height: 260px !important; }
 

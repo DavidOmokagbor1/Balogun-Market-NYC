@@ -15,6 +15,7 @@ AI-native from the ground up: semantic search over the collection (RAG on pgvect
 │  /api/search      query → embedding → pgvector      │
 │  /api/provenance  facts → Claude → narrative → save  │
 │  /api/catalog     image → Claude vision → draft      │
+│  /api/shopify/cart  Shopify cart → hosted checkout   │
 └──────────────┬───────────────────────┬───────────────┘
                │                       │
         ┌──────▼──────┐        ┌───────▼────────┐
@@ -56,7 +57,23 @@ cp .env.example .env.local
 
 Fill in your Anthropic, OpenAI, and Supabase keys.
 
-**4. Run**
+**4. Shopify (optional commerce layer)**
+
+- Create or open a Shopify store and publish products.
+- Install Shopify's **Headless** sales channel.
+- Create a storefront with product, inventory, cart, and checkout access.
+- Add the store's `.myshopify.com` domain and Storefront access token:
+
+```bash
+SHOPIFY_STORE_DOMAIN=your-store.myshopify.com
+SHOPIFY_STOREFRONT_ACCESS_TOKEN=your-storefront-access-token
+SHOPIFY_API_VERSION=2026-07
+```
+
+Shopify owns product prices, variants, inventory, carts, orders, and checkout.
+Supabase remains the source of truth for archive and provenance records.
+
+**5. Run**
 
 ```bash
 npm run dev
@@ -69,6 +86,7 @@ npm run dev
 | `POST /api/search` | Semantic search: `{ query }` → ranked artifact matches |
 | `POST /api/provenance` | Generate + save a provenance narrative: `{ artifactId, known_history? }` |
 | `POST /api/catalog` | Draft a catalog entry from a photo: `{ imageBase64, mediaType, imageUrl?, hint? }` |
+| `POST /api/shopify/cart` | Restore, create, update, or remove Shopify cart lines |
 
 ## Roadmap
 
@@ -80,4 +98,4 @@ npm run dev
 
 ## Stack
 
-Next.js 15 · React 19 · TypeScript · Tailwind CSS v4 · Supabase (Postgres + pgvector + Storage) · Anthropic Claude API · OpenAI embeddings · Zod
+Next.js 15 · React 19 · TypeScript · Tailwind CSS v4 · Supabase (Postgres + pgvector + Storage) · Shopify Storefront API · Anthropic Claude API · OpenAI embeddings · Zod

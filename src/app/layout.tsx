@@ -3,6 +3,8 @@ import "./globals.css";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { CartProvider } from "@/components/shop/CartProvider";
+import { CartDrawer } from "@/components/shop/CartDrawer";
 
 export const metadata: Metadata = {
   title: "Àṣà Archive",
@@ -16,10 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen" style={{ overflowX: "hidden" }}>
-        <CustomCursor />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <CartProvider>
+          <CustomCursor />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

@@ -2,13 +2,22 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
+import { useCart } from "@/components/shop/CartProvider";
 
-const NAV_LINKS = ["Collections", "Artists", "Gallery", "Exhibition", "Journal"];
+const NAV_LINKS = [
+  { label: "Collections", href: "/#collections" },
+  { label: "Artists", href: "/#artists" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Exhibition", href: "/#exhibition" },
+  { label: "Journal", href: "/#journal" },
+  { label: "Shop", href: "/shop" },
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { cart, openCart } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -40,7 +49,7 @@ export function Navbar() {
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
       >
         {/* Logo */}
-        <a href="#" style={{ textDecoration: "none", flexShrink: 0 }}>
+        <a href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 600, letterSpacing: "0.35em", color: "#F5F1E8", textTransform: "uppercase", lineHeight: 1 }}>
               ÀṢÀ
@@ -55,19 +64,19 @@ export function Navbar() {
         <nav className="asa-desktop-nav" style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
           {NAV_LINKS.map((link, i) => (
             <motion.a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+              key={link.label}
+              href={link.href}
               style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(245,241,232,0.55)", textDecoration: "none" }}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 + i * 0.08, duration: 0.5 }}
               whileHover={{ color: "#C9A86A" }}
             >
-              {link}
+              {link.label}
             </motion.a>
           ))}
           <motion.a
-            href="#membership"
+            href="/#membership"
             style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.58rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#0A0A0A", background: "#C9A86A", padding: "0.55rem 1.1rem", textDecoration: "none", whiteSpace: "nowrap" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -76,17 +85,92 @@ export function Navbar() {
           >
             Become a Collector
           </motion.a>
+          <button
+            type="button"
+            onClick={openCart}
+            aria-label={`Open shopping bag with ${cart?.totalQuantity ?? 0} items`}
+            style={{
+              position: "relative",
+              width: 34,
+              height: 34,
+              padding: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px solid rgba(245,241,232,0.12)",
+              background: "transparent",
+              color: "#F5F1E8",
+              cursor: "pointer",
+            }}
+          >
+            <ShoppingBag size={14} />
+            {(cart?.totalQuantity ?? 0) > 0 && (
+              <span
+                style={{
+                  position: "absolute",
+                  top: -6,
+                  right: -6,
+                  minWidth: 16,
+                  height: 16,
+                  padding: "0 3px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "#C9A86A",
+                  color: "#0A0A0A",
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: "0.48rem",
+                }}
+              >
+                {cart?.totalQuantity}
+              </span>
+            )}
+          </button>
         </nav>
 
         {/* Hamburger — mobile only */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="asa-hamburger"
-          aria-label="Open menu"
-          style={{ background: "none", border: "none", cursor: "pointer", color: "#F5F1E8", padding: "0.25rem", display: "none" }}
+        <div
+          className="asa-mobile-actions"
+          style={{ display: "none", alignItems: "center", gap: "0.8rem" }}
         >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+          <button
+            type="button"
+            onClick={openCart}
+            aria-label={`Open shopping bag with ${cart?.totalQuantity ?? 0} items`}
+            style={{
+              position: "relative",
+              border: "none",
+              background: "none",
+              color: "#F5F1E8",
+              padding: "0.25rem",
+              cursor: "pointer",
+            }}
+          >
+            <ShoppingBag size={20} />
+            {(cart?.totalQuantity ?? 0) > 0 && (
+              <span
+                style={{
+                  position: "absolute",
+                  top: -5,
+                  right: -7,
+                  color: "#C9A86A",
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: "0.5rem",
+                }}
+              >
+                {cart?.totalQuantity}
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="asa-hamburger"
+            aria-label="Open menu"
+            style={{ background: "none", border: "none", cursor: "pointer", color: "#F5F1E8", padding: "0.25rem" }}
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </motion.header>
 
       {/* Mobile full-screen menu */}
@@ -103,12 +187,12 @@ export function Navbar() {
               <X size={22} />
             </button>
             {NAV_LINKS.map((link) => (
-              <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setMenuOpen(false)}
+              <a key={link.label} href={link.href} onClick={() => setMenuOpen(false)}
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 300, color: "#F5F1E8", textDecoration: "none", letterSpacing: "0.05em" }}>
-                {link}
+                {link.label}
               </a>
             ))}
-            <a href="#membership" onClick={() => setMenuOpen(false)}
+            <a href="/#membership" onClick={() => setMenuOpen(false)}
               style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A86A", textDecoration: "none", marginTop: "1rem" }}>
               Become a Collector →
             </a>
