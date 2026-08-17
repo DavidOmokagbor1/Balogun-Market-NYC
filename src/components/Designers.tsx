@@ -120,15 +120,7 @@ export function Designers() {
                     ))}
                   </div>
 
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1.25rem 0", borderTop: "1px solid rgba(201,168,106,0.15)" }}>
-                    {"looks" in active && active.looks != null ? (
-                      <div>
-                        <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", color: "#C9A86A" }}>{active.looks}</div>
-                        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,241,232,0.3)" }}>Looks in House</div>
-                      </div>
-                    ) : (
-                      <div />
-                    )}
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", padding: "1.25rem 0", borderTop: "1px solid rgba(201,168,106,0.15)" }}>
                     <button style={{ padding: "0.85rem 2rem", background: "#C9A86A", color: "#0A0A0A", border: "none", fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", cursor: "pointer" }}>
                       View Collection
                     </button>
