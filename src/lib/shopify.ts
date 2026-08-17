@@ -3,7 +3,24 @@ import type {
   ShopifyProduct,
 } from "@/types/shopify";
 
-const domain = process.env.SHOPIFY_STORE_DOMAIN?.replace(/^https?:\/\//, "").replace(/\/$/, "");
+function normalizeStoreDomain(raw?: string): string | undefined {
+  if (!raw?.trim()) return undefined;
+  const value = raw.trim();
+
+  // People often paste the Headless admin URL instead of the store domain.
+  // https://admin.shopify.com/store/{handle}/headless/...
+  const adminMatch = value.match(/admin\.shopify\.com\/store\/([^/?#]+)/i);
+  if (adminMatch?.[1]) return `${adminMatch[1]}.myshopify.com`;
+
+  try {
+    const url = value.includes("://") ? new URL(value) : new URL(`https://${value}`);
+    return url.hostname;
+  } catch {
+    return value.replace(/^https?:\/\//, "").split("/")[0]?.replace(/\/$/, "") || undefined;
+  }
+}
+
+const domain = normalizeStoreDomain(process.env.SHOPIFY_STORE_DOMAIN);
 const accessToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
 const apiVersion = process.env.SHOPIFY_API_VERSION || "2026-07";
 

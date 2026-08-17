@@ -95,8 +95,9 @@ npm run dev
 
 | Variable | Purpose |
 |---|---|
-| `NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN` | Your Shopify store's `.myshopify.com` domain |
-| `NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN` | Storefront API access token (public, read-only) |
+| `SHOPIFY_STORE_DOMAIN` | Store host only, e.g. `your-store.myshopify.com` — not the admin Headless URL |
+| `SHOPIFY_STOREFRONT_ACCESS_TOKEN` | Storefront API access token (public, read-only) |
+| `SHOPIFY_API_VERSION` | Storefront API version (optional; defaults to `2026-07`) |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon/public key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase service-role key — **server-only, never exposed to client** |
