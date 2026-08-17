@@ -2,11 +2,9 @@ import { HeroSection } from "@/components/HeroSection";
 import { CollectionsGrid } from "@/components/CollectionsGrid";
 import { Timeline } from "@/components/Timeline";
 import { MasonryGallery } from "@/components/MasonryGallery";
-import { ArtistProfiles } from "@/components/ArtistProfiles";
-import { VirtualExhibition } from "@/components/VirtualExhibition";
+import { Designers } from "@/components/Designers";
 import { Lookbook } from "@/components/Lookbook";
 import { VideoReel } from "@/components/VideoReel";
-import { AIDiscovery } from "@/components/AIDiscovery";
 import { Membership } from "@/components/Membership";
 import { Journal } from "@/components/Journal";
 
@@ -19,11 +17,9 @@ export default function Home() {
       <CollectionsGrid />
       <Timeline />
       <MasonryGallery />
-      <ArtistProfiles />
-      <VirtualExhibition />
+      <Designers />
       <Lookbook />
       <VideoReel />
-      <AIDiscovery />
       <Membership />
       <Journal />
     </>
