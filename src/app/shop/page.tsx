@@ -8,9 +8,9 @@ import {
 import type { ShopifyProduct } from "@/types/shopify";
 
 export const metadata: Metadata = {
-  title: "The Shop",
+  title: "Shop",
   description:
-    "Limited editions, African luxury objects, and collector pieces selected by Balogun Market NYC.",
+    "Shop the Show — pieces from Y'WANDELAG and Mokhueleigbe at Balogun Market NYC.",
 };
 
 export const dynamic = "force-dynamic";
@@ -36,7 +36,7 @@ export default async function ShopPage() {
       <header
         style={{
           padding:
-            "clamp(8rem, 13vw, 12rem) clamp(1.25rem, 5vw, 5rem) clamp(4rem, 7vw, 7rem)",
+            "clamp(7rem, 10vw, 8.5rem) clamp(1.25rem, 5vw, 5rem) clamp(2.5rem, 4vw, 3.5rem)",
           borderBottom: "1px solid rgba(201,168,106,0.1)",
           background:
             "radial-gradient(circle at 80% 20%, rgba(201,168,106,0.08), transparent 34%), #080808",
@@ -44,25 +44,25 @@ export default async function ShopPage() {
       >
         <div style={{ maxWidth: 1400, margin: "0 auto" }}>
           <p className="catalog-label" style={{ margin: "0 0 1.2rem" }}>
-            Balogun Market Editions · Powered by Shopify
+            Shop the Show
           </p>
           <h1
             style={{
               maxWidth: 780,
               margin: 0,
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "clamp(3rem, 7vw, 6.5rem)",
+              fontSize: "clamp(2.4rem, 5vw, 4.25rem)",
               fontWeight: 300,
               lineHeight: 0.95,
               color: "#F5F1E8",
             }}
           >
-            Collect the <em style={{ color: "#C9A86A" }}>future.</em>
+            The Collection.
           </h1>
           <p
             style={{
               maxWidth: 560,
-              margin: "1.5rem 0 0",
+              margin: "1.25rem 0 0",
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.88rem",
               fontWeight: 300,
@@ -70,9 +70,8 @@ export default async function ShopPage() {
               color: "rgba(245,241,232,0.48)",
             }}
           >
-            Limited objects, garments, and editions grounded in African
-            authorship. Every purchase is completed through Shopify&apos;s
-            secure global checkout.
+            Pieces from Y&apos;WANDELAG and Mokhueleigbe — Lagos-made, shown in
+            New York.
           </p>
         </div>
       </header>
@@ -84,18 +83,12 @@ export default async function ShopPage() {
           padding: "clamp(3rem, 6vw, 6rem) clamp(1.25rem, 5vw, 5rem) 8rem",
         }}
       >
-        {!isShopifyConfigured ? (
-          <ShopState
-            title="The shop connection is ready."
-            message="Add the Shopify store domain and Storefront access token to activate live products, inventory, cart, and checkout."
-            showSetup={process.env.NODE_ENV !== "production"}
-          />
-        ) : error ? (
-          <ShopState title="The collection is temporarily unavailable." message={error} />
+        {error ? (
+          <ShopState title="The collection is temporarily unavailable." message="Please return shortly." />
         ) : products.length === 0 ? (
           <ShopState
-            title="The first edition is being prepared."
-            message="Shopify is connected, but no products are currently published to this storefront."
+            title="The first drop is being prepared."
+            message="Y'WANDELAG and Mokhueleigbe will appear here. Meet the houses in the meantime."
           />
         ) : (
           <>
@@ -143,26 +136,22 @@ export default async function ShopPage() {
 function ShopState({
   title,
   message,
-  showSetup = false,
 }: {
   title: string;
   message: string;
-  showSetup?: boolean;
 }) {
   return (
     <div
       style={{
         maxWidth: 650,
-        padding: "3rem",
-        border: "1px solid rgba(201,168,106,0.18)",
-        background: "rgba(245,241,232,0.015)",
+        padding: "2.5rem 0",
       }}
     >
       <p
         style={{
           margin: 0,
           fontFamily: "'Cormorant Garamond', serif",
-          fontSize: "2rem",
+          fontSize: "1.85rem",
           fontWeight: 300,
           color: "#F5F1E8",
         }}
@@ -171,7 +160,7 @@ function ShopState({
       </p>
       <p
         style={{
-          margin: "0.8rem 0 0",
+          margin: "0.8rem 0 1.5rem",
           fontFamily: "'Inter', sans-serif",
           fontSize: "0.8rem",
           lineHeight: 1.75,
@@ -180,25 +169,19 @@ function ShopState({
       >
         {message}
       </p>
-      {showSetup && (
-        <pre
-          style={{
-            margin: "1.5rem 0 0",
-            padding: "1rem",
-            overflowX: "auto",
-            background: "#050505",
-            border: "1px solid rgba(245,241,232,0.08)",
-            color: "#C9A86A",
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "0.65rem",
-            lineHeight: 1.7,
-          }}
-        >
-          SHOPIFY_STORE_DOMAIN=your-store.myshopify.com{"\n"}
-          SHOPIFY_STOREFRONT_ACCESS_TOKEN=your-token{"\n"}
-          SHOPIFY_API_VERSION=2026-07
-        </pre>
-      )}
+      <a
+        href="/#designers"
+        style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.62rem",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "#C9A86A",
+          textDecoration: "none",
+        }}
+      >
+        Meet the Designers →
+      </a>
     </div>
   );
 }

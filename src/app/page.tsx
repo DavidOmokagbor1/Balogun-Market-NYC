@@ -21,9 +21,9 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
+      {products.length > 0 && <ShopPreview products={products} />}
       <Designers />
       <Lookbook />
-      <ShopPreview products={products} />
     </>
   );
 }
@@ -34,7 +34,7 @@ function ShopPreview({ products }: { products: ShopifyProduct[] }) {
       id="shop"
       style={{
         background: "#0A0A0A",
-        padding: "clamp(4rem, 8vw, 10rem) clamp(1rem, 4vw, 4rem)",
+        padding: "clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem)",
         borderTop: "1px solid rgba(201,168,106,0.08)",
       }}
     >
@@ -46,7 +46,7 @@ function ShopPreview({ products }: { products: ShopifyProduct[] }) {
             justifyContent: "space-between",
             gap: "2rem",
             flexWrap: "wrap",
-            marginBottom: "4rem",
+            marginBottom: "2.5rem",
           }}
         >
           <div>
@@ -74,7 +74,7 @@ function ShopPreview({ products }: { products: ShopifyProduct[] }) {
             <h2
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "clamp(2.5rem, 5vw, 5rem)",
+                fontSize: "clamp(1.85rem, 3.4vw, 3rem)",
                 fontWeight: 300,
                 color: "#F5F1E8",
                 margin: 0,
@@ -83,7 +83,7 @@ function ShopPreview({ products }: { products: ShopifyProduct[] }) {
             >
               The Collection.
               <br />
-              <em style={{ fontStyle: "italic", color: "#C9A86A" }}>For sale.</em>
+              <em style={{ fontStyle: "italic", color: "#C9A86A" }}>Shop the Show.</em>
             </h2>
           </div>
           <a

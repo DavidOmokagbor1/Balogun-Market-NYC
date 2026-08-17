@@ -69,7 +69,7 @@ export function ProductCard({ product }: { product: ShopifyProduct }) {
                 textTransform: "uppercase",
               }}
             >
-              Collected
+              Sold out
             </span>
           )}
         </div>

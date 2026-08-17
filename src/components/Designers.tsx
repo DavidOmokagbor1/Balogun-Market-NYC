@@ -38,16 +38,16 @@ export function Designers() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="designers" style={{ background: "#0D0D0D", padding: "clamp(4rem, 8vw, 10rem) clamp(1rem, 4vw, 4rem)", borderTop: "1px solid rgba(201,168,106,0.08)" }}>
+    <section id="designers" style={{ background: "#0D0D0D", padding: "clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem)", borderTop: "1px solid rgba(201,168,106,0.08)" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }} ref={ref}>
         {/* Header */}
-        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "5rem" }}>
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "2.5rem" }}>
           <div>
             <motion.div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }} initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.7 }}>
               <div style={{ width: "30px", height: "1px", background: "#C9A86A" }} />
               <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.55rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A86A" }}>The Roster</span>
             </motion.div>
-            <motion.h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.5rem, 5vw, 5rem)", fontWeight: 300, color: "#F5F1E8", margin: 0, lineHeight: 1.0 }} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.9, delay: 0.1 }}>
+            <motion.h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.85rem, 3.4vw, 3rem)", fontWeight: 300, color: "#F5F1E8", margin: 0, lineHeight: 1.05 }} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.9, delay: 0.1 }}>
               The Designers<br /><em style={{ fontStyle: "italic", color: "#C9A86A" }}>Defining Now.</em>
             </motion.h2>
           </div>
@@ -57,7 +57,7 @@ export function Designers() {
         </div>
 
         {/* Grid */}
-        <div className="asa-artists-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5px", maxWidth: "720px" }}>
+        <div className="asa-artists-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5px" }}>
           {DESIGNERS.map((designer, i) => (
             <motion.div
               key={designer.id}
@@ -121,9 +121,9 @@ export function Designers() {
                   </div>
 
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", padding: "1.25rem 0", borderTop: "1px solid rgba(201,168,106,0.15)" }}>
-                    <button style={{ padding: "0.85rem 2rem", background: "#C9A86A", color: "#0A0A0A", border: "none", fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", cursor: "pointer" }}>
-                      View Collection
-                    </button>
+                    <a href="/shop" style={{ padding: "0.85rem 2rem", background: "#C9A86A", color: "#0A0A0A", border: "none", fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", cursor: "pointer", textDecoration: "none", display: "inline-block" }}>
+                      Shop the House
+                    </a>
                   </div>
                 </div>
               </div>
@@ -159,7 +159,7 @@ function DesignerCard({ designer }: { designer: typeof DESIGNERS[0] }) {
         <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.6rem", fontWeight: 400, color: "#F5F1E8", margin: "0 0 0.25rem", lineHeight: 1.1 }}>{designer.name}</h3>
         <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.55rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(245,241,232,0.35)" }}>{designer.category}</div>
         <motion.div animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -10 }} style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "1rem" }}>
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: designer.color }}>View House</span>
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: designer.color }}>Shop the House</span>
           <div style={{ width: "20px", height: "1px", background: designer.color }} />
         </motion.div>
       </div>

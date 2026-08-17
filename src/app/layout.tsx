@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Balogun Market NYC",
   },
   description:
-    "African fashion, art, and cultural luxury — connecting heritage, contemporary design, and collectors from New York to the world.",
+    "A curated luxury marketplace bridging African creativity with global fashion culture. Y'WANDELAG and Mokhueleigbe — shown in New York.",
 };
 
 export default function RootLayout({

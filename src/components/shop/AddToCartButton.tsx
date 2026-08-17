@@ -7,7 +7,7 @@ import { useCart } from "./CartProvider";
 export function AddToCartButton({
   variantId,
   available,
-  label = "Add to collector's bag",
+  label = "Add to bag",
   compact = false,
 }: {
   variantId: string;

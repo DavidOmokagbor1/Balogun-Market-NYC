@@ -6,9 +6,9 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 import { useCart } from "@/components/shop/CartProvider";
 
 const NAV_LINKS = [
+  { label: "Shop", href: "/shop" },
   { label: "Designers", href: "/#designers" },
   { label: "Lookbook", href: "/#lookbook" },
-  { label: "Shop", href: "/shop" },
 ];
 
 export function Navbar() {
@@ -72,16 +72,6 @@ export function Navbar() {
               {link.label}
             </motion.a>
           ))}
-          <motion.a
-            href="/shop"
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.58rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#0A0A0A", background: "#C9A86A", padding: "0.55rem 1.1rem", textDecoration: "none", whiteSpace: "nowrap" }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
-            whileHover={{ background: "#F5F1E8" }}
-          >
-            Shop the Show
-          </motion.a>
           <button
             type="button"
             onClick={openCart}

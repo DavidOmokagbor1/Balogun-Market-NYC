@@ -49,16 +49,16 @@ export function Lookbook() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="lookbook" style={{ background: "#0A0A0A", padding: "clamp(4rem, 8vw, 10rem) 0", borderTop: "1px solid rgba(201,168,106,0.08)", overflow: "hidden" }}>
+    <section id="lookbook" style={{ background: "#0A0A0A", padding: "clamp(3rem, 6vw, 6rem) 0", borderTop: "1px solid rgba(201,168,106,0.08)", overflow: "hidden" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 4rem" }} ref={ref}>
         {/* Header */}
-        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "5rem" }}>
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "2.5rem" }}>
           <div>
             <motion.div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }} initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.7 }}>
               <div style={{ width: "30px", height: "1px", background: "#C9A86A" }} />
               <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.55rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A86A" }}>The Houses</span>
             </motion.div>
-            <motion.h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.5rem, 5vw, 5rem)", fontWeight: 300, color: "#F5F1E8", margin: 0, lineHeight: 1.0 }} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.9, delay: 0.1 }}>
+            <motion.h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.85rem, 3.4vw, 3rem)", fontWeight: 300, color: "#F5F1E8", margin: 0, lineHeight: 1.05 }} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.9, delay: 0.1 }}>
               Runway. Editorial.<br /><em style={{ fontStyle: "italic", color: "#C9A86A" }}>Collectible.</em>
             </motion.h2>
           </div>
@@ -82,7 +82,7 @@ export function Lookbook() {
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: i * 0.1 }}
-            style={{ flexShrink: 0, width: activeLook === i ? "clamp(240px, 70vw, 380px)" : "clamp(80px, 25vw, 200px)", height: "clamp(400px, 70vh, 600px)", position: "relative", overflow: "hidden", cursor: "pointer", transition: "width 0.5s cubic-bezier(0.22, 1, 0.36, 1)" }}
+            style={{ flexShrink: 0, width: activeLook === i ? "clamp(240px, 70vw, 380px)" : "clamp(80px, 25vw, 200px)", height: "clamp(340px, 52vh, 460px)", position: "relative", overflow: "hidden", cursor: "pointer", transition: "width 0.5s cubic-bezier(0.22, 1, 0.36, 1)" }}
             data-cursor-hover
           >
             <img
@@ -102,7 +102,14 @@ export function Lookbook() {
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A86A", marginBottom: "0.5rem" }}>{look.season}</div>
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.75rem", fontWeight: 400, color: "#F5F1E8", margin: "0 0 0.35rem", lineHeight: 1.1 }}>{look.title}</h3>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", color: "rgba(245,241,232,0.5)", marginBottom: "0.25rem" }}>{look.designer}</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", fontStyle: "italic", color: "rgba(245,241,232,0.35)" }}>{look.material}</div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", fontStyle: "italic", color: "rgba(245,241,232,0.35)", marginBottom: "0.85rem" }}>{look.material}</div>
+              <a
+                href="/shop"
+                onClick={(e) => e.stopPropagation()}
+                style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A86A", textDecoration: "none" }}
+              >
+                Shop the Show →
+              </a>
             </div>
 
             {/* Minimal title for closed state */}
