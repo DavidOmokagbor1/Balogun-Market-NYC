@@ -45,7 +45,7 @@ export function HeroSection() {
     <section
       ref={ref}
       id="hero"
-      style={{ position: "relative", height: "100vh", minHeight: "700px", overflow: "hidden", display: "flex", alignItems: "center" }}
+      style={{ position: "relative", height: "72vh", minHeight: "480px", maxHeight: "640px", overflow: "hidden", display: "flex", alignItems: "center" }}
     >
       {/* Parallax background — live Pexels photo, cycles every 6 s */}
       <motion.div style={{ position: "absolute", inset: "-15%", y: imgY }}>
@@ -78,21 +78,21 @@ export function HeroSection() {
       >
         {/* Overline */}
         <motion.div
-          style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2.5rem" }}
+          style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <div style={{ width: "40px", height: "1px", background: "#C9A86A" }} />
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#C9A86A" }}>
-            A curated luxury marketplace
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "#C9A86A" }}>
+            Balogun Market NYC
           </span>
         </motion.div>
 
         {/* Main headline */}
         <div style={{ overflow: "hidden", marginBottom: "0.5rem" }}>
           <motion.h1
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3.5rem, 8vw, 9rem)", fontWeight: 300, color: "#F5F1E8", lineHeight: 0.95, margin: 0, letterSpacing: "-0.02em" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.1rem, 5vw, 4.5rem)", fontWeight: 300, color: "#F5F1E8", lineHeight: 0.95, margin: 0, letterSpacing: "-0.02em" }}
             initial={{ y: 120, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -102,7 +102,7 @@ export function HeroSection() {
         </div>
         <div style={{ overflow: "hidden", marginBottom: "0.5rem" }}>
           <motion.h1
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3.5rem, 8vw, 9rem)", fontWeight: 300, color: "#F5F1E8", lineHeight: 0.95, margin: 0, letterSpacing: "-0.02em", display: "flex", alignItems: "baseline", gap: "0.3em", flexWrap: "wrap" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.1rem, 5vw, 4.5rem)", fontWeight: 300, color: "#F5F1E8", lineHeight: 0.95, margin: 0, letterSpacing: "-0.02em", display: "flex", alignItems: "baseline", gap: "0.3em", flexWrap: "wrap" }}
             initial={{ y: 120, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.1, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
@@ -122,9 +122,9 @@ export function HeroSection() {
             </em>
           </motion.h1>
         </div>
-        <div style={{ overflow: "hidden", marginBottom: "3.5rem" }}>
+        <div style={{ overflow: "hidden", marginBottom: "2rem" }}>
           <motion.h1
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3.5rem, 8vw, 9rem)", fontWeight: 300, color: "#F5F1E8", lineHeight: 0.95, margin: 0, letterSpacing: "-0.02em" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.1rem, 5vw, 4.5rem)", fontWeight: 300, color: "#F5F1E8", lineHeight: 0.95, margin: 0, letterSpacing: "-0.02em" }}
             initial={{ y: 120, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.1, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}

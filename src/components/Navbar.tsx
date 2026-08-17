@@ -32,14 +32,14 @@ export function Navbar() {
           right: 0,
           zIndex: 500,
           padding: "0 clamp(1rem, 4vw, 3rem)",
-          height: "72px",
+          height: "88px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           transition: "background 0.5s, backdrop-filter 0.5s, border-color 0.5s",
-          background: scrolled ? "rgba(10,10,10,0.9)" : "transparent",
-          backdropFilter: scrolled ? "blur(24px) saturate(180%)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(201,168,106,0.12)" : "1px solid transparent",
+          background: scrolled ? "rgba(10,10,10,0.94)" : "rgba(10,10,10,0.62)",
+          backdropFilter: "blur(20px) saturate(180%)",
+          borderBottom: scrolled ? "1px solid rgba(201,168,106,0.18)" : "1px solid rgba(201,168,106,0.1)",
         }}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -47,12 +47,12 @@ export function Navbar() {
       >
         {/* Logo */}
         <a href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
-            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.95rem", fontWeight: 600, letterSpacing: "0.18em", color: "#F5F1E8", textTransform: "uppercase", lineHeight: 1 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.45rem", fontWeight: 600, letterSpacing: "0.14em", color: "#F5F1E8", textTransform: "uppercase", lineHeight: 1 }}>
               Balogun Market
             </span>
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.45rem", letterSpacing: "0.2em", color: "#C9A86A", textTransform: "uppercase" }}>
-              NYC · African Fashion
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.62rem", letterSpacing: "0.28em", color: "#C9A86A", textTransform: "uppercase" }}>
+              NYC
             </span>
           </div>
         </a>
