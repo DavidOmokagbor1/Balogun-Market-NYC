@@ -35,9 +35,9 @@ function Youtube({ size = 24 }: IconProps) {
 
 export function Footer() {
   const LINKS = {
-    Archive: ["Fashion Archive", "Contemporary Art", "Photography", "Textiles", "Sculpture", "Emerging Artists"],
-    Platform: ["Virtual Exhibition", "AI Discovery", "Lookbook", "Timeline", "Journal", "Press"],
-    Membership: ["Associate", "Collector", "Patron", "Gift Membership", "Institutions"],
+    Houses: ["Y'WANDELAG", "Mokhueleigbe"],
+    Shop: ["The Collection", "Lookbook", "Cart"],
+    Visit: ["New York", "Press", "Partners"],
     Legal: ["Privacy Policy", "Terms of Use", "Cookie Policy", "Accessibility"],
   };
 
@@ -50,10 +50,10 @@ export function Footer() {
           <div>
             <div style={{ marginBottom: "1.5rem" }}>
               <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.75rem", fontWeight: 600, letterSpacing: "0.12em", color: "#F5F1E8", textTransform: "uppercase" }}>Balogun Market NYC</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", color: "#C9A86A", textTransform: "uppercase", marginTop: "2px" }}>African Fashion, Art & Luxury</div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", color: "#C9A86A", textTransform: "uppercase", marginTop: "2px" }}>African Fashion</div>
             </div>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", lineHeight: 1.8, color: "rgba(245,241,232,0.35)", maxWidth: "280px", margin: "0 0 2rem" }}>
-              The Digital Louvre of African Fashion & Art. Archiving the past, amplifying the present, collecting the future.
+              A multi-brand luxury retailer championing African designers, with a cultural footprint that rivals Dover Street Market, Browns, and The Folklore.
             </p>
             <div style={{ display: "flex", gap: "0.75rem" }}>
               {[Instagram, Twitter, Youtube, Globe].map((Icon, i) => (

@@ -30,62 +30,6 @@ const DESIGNERS = [
     quote: "This successful rebrand and collection marks a new era for Mokhueleigbe Studios as it steps into a fresh identity while continuing to deliver elegance and innovation in Nigerian fashion.",
     color: "#C9A86A",
   },
-  {
-    id: 3,
-    name: "Amara Diallo",
-    country: "Senegal",
-    category: "Ready-to-Wear",
-    founded: "2018, Dakar",
-    signature: "Hand-dyed indigo and portrait-scale evening silhouettes",
-    collections: ["Dakar Nights S/S 2024", "Indigo Line F/W 2024", "NYFW Debut 2025"],
-    looks: 48,
-    img: "https://images.unsplash.com/photo-1539701938214-0d9736e1c16b?w=600&h=800&fit=crop&auto=format",
-    featured: "https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?w=800&h=500&fit=crop&auto=format",
-    quote: "Cloth carries memory. The cut is how we speak it in this century.",
-    color: "#C9A86A",
-  },
-  {
-    id: 4,
-    name: "Kofi Mensah",
-    country: "Ghana",
-    category: "Scarves & Textiles",
-    founded: "2012, Kumasi",
-    signature: "Kente geometry woven into contemporary luxury cloth",
-    collections: ["Gold Strip F/W 2023", "Kumasi Atelier 2024", "House Textiles 2025"],
-    looks: 127,
-    img: "https://images.unsplash.com/photo-1571375814199-4072612351aa?w=600&h=800&fit=crop&auto=format",
-    featured: "https://images.unsplash.com/photo-1578509566163-068acd11b8e7?w=800&h=500&fit=crop&auto=format",
-    quote: "Kente speaks what words cannot. It is the language of the house.",
-    color: "#C9A86A",
-  },
-  {
-    id: 5,
-    name: "Chidinma Obi",
-    country: "Nigeria",
-    category: "Occasionwear",
-    founded: "2019, Lagos",
-    signature: "Sculptural tailoring fused with Igbo heritage cloth",
-    collections: ["Lagos Fashion Week 2024", "Paris Fashion Week 2025", "Founding Designer — First Look"],
-    looks: 63,
-    img: "https://images.unsplash.com/photo-1707914883484-03115dea98fb?w=600&h=800&fit=crop&auto=format",
-    featured: "https://images.unsplash.com/photo-1713845784497-fe3d7ed176d8?w=800&h=500&fit=crop&auto=format",
-    quote: "The future of fashion was always African. We're just making it visible.",
-    color: "#C9A86A",
-  },
-  {
-    id: 6,
-    name: "Yasmin El-Rashid",
-    country: "Ethiopia",
-    category: "Jewelry",
-    founded: "2016, Addis Ababa",
-    signature: "Filigree goldwork scaled for evening and ceremony",
-    collections: ["Addis Gold 2023", "Liturgy Metals 2024", "Ceremony Line 2025"],
-    looks: 89,
-    img: "https://images.unsplash.com/photo-1708170236295-20ab8fbadcef?w=600&h=800&fit=crop&auto=format",
-    featured: "https://images.unsplash.com/photo-1761641062457-bc8603350eb0?w=800&h=500&fit=crop&auto=format",
-    quote: "Metal holds lineage the way cloth holds a name — precisely, and in public.",
-    color: "#C9A86A",
-  },
 ];
 
 export function Designers() {
@@ -94,7 +38,7 @@ export function Designers() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="artists" style={{ background: "#0D0D0D", padding: "clamp(4rem, 8vw, 10rem) clamp(1rem, 4vw, 4rem)", borderTop: "1px solid rgba(201,168,106,0.08)" }}>
+    <section id="designers" style={{ background: "#0D0D0D", padding: "clamp(4rem, 8vw, 10rem) clamp(1rem, 4vw, 4rem)", borderTop: "1px solid rgba(201,168,106,0.08)" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }} ref={ref}>
         {/* Header */}
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "5rem" }}>
@@ -113,7 +57,7 @@ export function Designers() {
         </div>
 
         {/* Grid */}
-        <div className="asa-artists-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.5px" }}>
+        <div className="asa-artists-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5px", maxWidth: "720px" }}>
           {DESIGNERS.map((designer, i) => (
             <motion.div
               key={designer.id}

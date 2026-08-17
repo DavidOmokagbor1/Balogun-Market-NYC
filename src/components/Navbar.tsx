@@ -6,11 +6,8 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 import { useCart } from "@/components/shop/CartProvider";
 
 const NAV_LINKS = [
-  { label: "Collections", href: "/#collections" },
-  { label: "Artists", href: "/#artists" },
-  { label: "Gallery", href: "/#gallery" },
-  { label: "Exhibition", href: "/#exhibition" },
-  { label: "Journal", href: "/#journal" },
+  { label: "Designers", href: "/#designers" },
+  { label: "Lookbook", href: "/#lookbook" },
   { label: "Shop", href: "/shop" },
 ];
 
@@ -55,7 +52,7 @@ export function Navbar() {
               Balogun Market
             </span>
             <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.45rem", letterSpacing: "0.2em", color: "#C9A86A", textTransform: "uppercase" }}>
-              NYC · African Fashion & Art
+              NYC · African Fashion
             </span>
           </div>
         </a>
@@ -76,14 +73,14 @@ export function Navbar() {
             </motion.a>
           ))}
           <motion.a
-            href="/#membership"
+            href="/shop"
             style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.58rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#0A0A0A", background: "#C9A86A", padding: "0.55rem 1.1rem", textDecoration: "none", whiteSpace: "nowrap" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.5 }}
             whileHover={{ background: "#F5F1E8" }}
           >
-            Become a Collector
+            Shop the Show
           </motion.a>
           <button
             type="button"
@@ -192,9 +189,9 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a href="/#membership" onClick={() => setMenuOpen(false)}
+            <a href="/shop" onClick={() => setMenuOpen(false)}
               style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A86A", textDecoration: "none", marginTop: "1rem" }}>
-              Become a Collector →
+              Shop the Show →
             </a>
           </motion.div>
         )}

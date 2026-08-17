@@ -7,47 +7,38 @@ const LOOKS = [
   {
     id: 1,
     look: "Look 01",
-    title: "Dust & Gold",
-    designer: "Chidinma Obi",
-    material: "Hand-loomed aso-oke, 24K gold thread",
-    season: "SS 2026",
-    img: "https://images.unsplash.com/photo-1713845784497-fe3d7ed176d8?w=700&h=1000&fit=crop&auto=format",
+    title: "Mallia",
+    designer: "Y'WANDELAG",
+    material: "Heritage embroidery on a locally made silhouette",
+    season: "Studio, Lagos",
+    img: "/designers/ywande-shop.jpg",
   },
   {
     id: 2,
     look: "Look 02",
-    title: "The Wanderer",
-    designer: "Lola Adeyemi",
-    material: "Wax-resist indigo, silk organza",
-    season: "SS 2026",
-    img: "https://images.unsplash.com/photo-1664662566408-ef40c502a66b?w=700&h=1000&fit=crop&auto=format",
+    title: "Lagos Fashion Week",
+    designer: "Y'WANDELAG",
+    material: "Zubi, Tinko, and tie-dye — the 2024 runway",
+    season: "LFW 2024",
+    img: "/designers/ywande-featured.jpg",
   },
   {
     id: 3,
     look: "Look 03",
-    title: "Harmattan",
-    designer: "Amara Diallo",
-    material: "Saharan linen, burnished brass hardware",
-    season: "SS 2026",
-    img: "https://images.unsplash.com/photo-1659522761084-79196b64abe4?w=700&h=1000&fit=crop&auto=format",
+    title: "Élan",
+    designer: "Mokhueleigbe",
+    material: "Haute collection — the 2025 rebrand",
+    season: "Lekki, 2025",
+    img: "/designers/mokhueleigbe-portrait.jpg",
   },
   {
     id: 4,
     look: "Look 04",
-    title: "Night Market",
-    designer: "Yasmin El-Rashid",
-    material: "Kente weave, leather from Marrakech",
-    season: "SS 2026",
-    img: "https://images.unsplash.com/photo-1709809081557-78f803ce93a0?w=700&h=1000&fit=crop&auto=format",
-  },
-  {
-    id: 5,
-    look: "Look 05",
-    title: "Duality",
-    designer: "Kofi Mensah",
-    material: "Bogolan mudcloth, metallic georgette",
-    season: "SS 2026",
-    img: "https://images.unsplash.com/photo-1625646741211-711bdd65c570?w=700&h=1000&fit=crop&auto=format",
+    title: "Oath & Bloom",
+    designer: "Mokhueleigbe",
+    material: "Bridal collection — structured occasionwear",
+    season: "Bridal",
+    img: "/designers/mokhueleigbe-featured.jpg",
   },
 ];
 
@@ -65,7 +56,7 @@ export function Lookbook() {
           <div>
             <motion.div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }} initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.7 }}>
               <div style={{ width: "30px", height: "1px", background: "#C9A86A" }} />
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.55rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A86A" }}>SS 2026 Lookbook</span>
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.55rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A86A" }}>The Houses</span>
             </motion.div>
             <motion.h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.5rem, 5vw, 5rem)", fontWeight: 300, color: "#F5F1E8", margin: 0, lineHeight: 1.0 }} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.9, delay: 0.1 }}>
               Runway. Editorial.<br /><em style={{ fontStyle: "italic", color: "#C9A86A" }}>Collectible.</em>

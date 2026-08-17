@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { usePexelsPhotos } from "@/hooks/usePexelsPhotos";
 
 // useScroll without target uses window scroll — avoids static-position container warning
-const WORDS = ["Fashion", "Art", "Culture", "Heritage", "Identity"];
+const WORDS = ["Fashion", "Craft", "Culture", "Heritage", "Luxury"];
 const FALLBACK_IMG = "https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?w=1800&h=1200&fit=crop&auto=format";
 
 export function HeroSection() {
@@ -18,25 +18,10 @@ export function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [bgIndex, setBgIndex] = useState(0);
-  const [stats, setStats] = useState<{
-    works: number;
-    origins: number;
-    named_makers: number;
-    categories: number;
-  } | null>(null);
 
   // Live Pexels photos — cycle through them as hero background
   const { photos } = usePexelsPhotos("african fashion editorial model", 5);
   const heroSrc = photos.length > 0 ? photos[bgIndex % photos.length].url : FALLBACK_IMG;
-
-  useEffect(() => {
-    fetch("/api/stats")
-      .then((r) => r.json())
-      .then((d) => {
-        if (typeof d.works === "number") setStats(d);
-      })
-      .catch(() => {});
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -76,7 +61,7 @@ export function HeroSection() {
       </motion.div>
 
       {/* Gradient overlays */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.4) 50%, rgba(15,95,75,0.15) 100%)" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.4) 50%, rgba(201,168,106,0.12) 100%)" }} />
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "40%", background: "linear-gradient(to top, #0A0A0A, transparent)" }} />
 
       {/* Gold line accent */}
@@ -100,7 +85,7 @@ export function HeroSection() {
         >
           <div style={{ width: "40px", height: "1px", background: "#C9A86A" }} />
           <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#C9A86A" }}>
-            The Digital Louvre of African Fashion & Art
+            A curated luxury marketplace
           </span>
         </motion.div>
 
@@ -156,27 +141,27 @@ export function HeroSection() {
           transition={{ duration: 0.9, delay: 1.2 }}
         >
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.875rem", lineHeight: 1.8, color: "rgba(245,241,232,0.55)", maxWidth: "380px", margin: 0 }}>
-            A living archive and discovery platform for Africa's most visionary designers, artists, and cultural makers — from 1960 to now.
+            A curated luxury marketplace bridging African creativity with global fashion culture — starting in New York City.
           </p>
           <div style={{ display: "flex", gap: "1rem" }}>
-            <a href="#collections" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "1rem 2rem", background: "#C9A86A", color: "#0A0A0A", fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 0.25s" }}
+            <a href="/shop" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "1rem 2rem", background: "#C9A86A", color: "#0A0A0A", fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "background 0.25s" }}
               onMouseEnter={e => (e.currentTarget.style.background = "#F5F1E8")}
               onMouseLeave={e => (e.currentTarget.style.background = "#C9A86A")}
             >
-              Explore Collection
+              Shop the Show
               <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
-            <a href="#artists" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "1rem 2rem", background: "transparent", color: "#F5F1E8", border: "1px solid rgba(245,241,232,0.2)", fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "border-color 0.25s" }}
+            <a href="#designers" style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", padding: "1rem 2rem", background: "transparent", color: "#F5F1E8", border: "1px solid rgba(245,241,232,0.2)", fontFamily: "'Inter', sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", textDecoration: "none", transition: "border-color 0.25s" }}
               onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(201,168,106,0.5)")}
               onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(245,241,232,0.2)")}
             >
-              Meet the Artists
+              Meet the Designers
             </a>
           </div>
         </motion.div>
       </motion.div>
 
-      {/* Bottom stats bar — live counts from the archive, never fictional */}
+      {/* Bottom stats bar */}
       <motion.div
         style={{ position: "absolute", bottom: 0, left: 0, right: 0, borderTop: "1px solid rgba(201,168,106,0.12)", padding: "1.25rem clamp(1.25rem, 5vw, 5rem)", display: "flex", gap: "clamp(1.5rem, 4vw, 4rem)", flexWrap: "wrap", zIndex: 10 }}
         initial={{ opacity: 0 }}
@@ -184,10 +169,10 @@ export function HeroSection() {
         transition={{ duration: 0.8, delay: 1.5 }}
       >
         {[
-          { n: stats ? String(stats.works) : "—", l: "Works Archived" },
-          { n: stats ? String(stats.named_makers) : "—", l: "Named Makers" },
-          { n: stats ? String(stats.origins) : "—", l: "Places of Origin" },
-          { n: stats ? String(stats.categories) : "—", l: "Categories" },
+          { n: "02", l: "Fashion Houses" },
+          { n: "NG", l: "Lagos Ateliers" },
+          { n: "NYC", l: "The Market" },
+          { n: "LFW", l: "On the Runway" },
         ].map(({ n, l }) => (
           <div key={l}>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 400, color: "#C9A86A" }}>{n}</div>
