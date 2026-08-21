@@ -79,7 +79,7 @@ export function CartDrawer() {
                     color: "#F5F1E8",
                   }}
                 >
-                  Collector&apos;s Bag ({cart?.totalQuantity ?? 0})
+                  The bag ({cart?.totalQuantity ?? 0})
                 </span>
               </div>
               <button
@@ -149,8 +149,8 @@ export function CartDrawer() {
                       color: "rgba(245,241,232,0.4)",
                     }}
                   >
-                    Explore limited editions and objects selected by Balogun
-                    Market NYC.
+                    Pieces from Y&apos;WANDELAG and Mokhueleigbe — Shop the Show
+                    when the collection is live.
                   </p>
                   <Link
                     href="/shop"
@@ -366,25 +366,41 @@ export function CartDrawer() {
                 >
                   Shipping and taxes are calculated securely by Shopify.
                 </p>
-                <a
-                  href={cart.checkoutUrl}
-                  style={{
-                    width: "100%",
-                    minHeight: 52,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    background: "#C9A86A",
-                    color: "#0A0A0A",
-                    textDecoration: "none",
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: "0.62rem",
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Secure checkout
-                </a>
+                {cart.checkoutUrl ? (
+                  <a
+                    href={cart.checkoutUrl}
+                    rel="noopener noreferrer"
+                    style={{
+                      width: "100%",
+                      minHeight: 52,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: "#C9A86A",
+                      color: "#0A0A0A",
+                      textDecoration: "none",
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "0.62rem",
+                      letterSpacing: "0.18em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Secure checkout
+                  </a>
+                ) : (
+                  <p
+                    style={{
+                      margin: 0,
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "0.62rem",
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      color: "rgba(245,241,232,0.35)",
+                    }}
+                  >
+                    Checkout is preparing — return shortly.
+                  </p>
+                )}
               </div>
             )}
           </motion.aside>

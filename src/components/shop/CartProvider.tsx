@@ -10,7 +10,7 @@ import {
 } from "react";
 import type { ShopifyCart } from "@/types/shopify";
 
-const CART_STORAGE_KEY = "asa-shopify-cart-id";
+const CART_STORAGE_KEY = "balogun-shopify-cart-id";
 
 interface CartContextValue {
   cart: ShopifyCart | null;

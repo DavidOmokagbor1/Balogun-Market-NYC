@@ -1,6 +1,6 @@
 # Balogun Market NYC
 
-**Live:** [asa-agentic-africanfashion.vercel.app](https://asa-agentic-africanfashion.vercel.app/)
+**Live:** Vercel project `balogun-market-nyc` — set `NEXT_PUBLIC_SITE_URL` to the production host.
 
 A curated luxury marketplace bridging African creativity with global fashion culture —
 starting in New York City.
@@ -48,9 +48,11 @@ are published.
 
 ## Site structure
 
-- `/` — Hero (Founding Houses), Designers (The Roster), Lookbook
+- `/` — Hero, offering, roster, lookbook, gallery, brand story, Journal
 - `/shop` — the collection, via headless Shopify
-- `/#designers`, `/#lookbook` — in-page anchors from the nav
+- `/journal` — next-season collections, pop-ups, briefs
+- `/contact`, `/policies`
+- `/#designers`, `/#lookbook`, `/#story`, `/#journal`
 
 ## Stack
 
@@ -95,7 +97,8 @@ npm run dev
 
 | Variable | Purpose |
 |---|---|
-| `SHOPIFY_STORE_DOMAIN` | Store host only, e.g. `your-store.myshopify.com` — not the admin Headless URL |
+| `NEXT_PUBLIC_SITE_URL` | Public site origin for Open Graph and sitemap, e.g. `https://www.balogunmarketnyc.com` |
+| `SHOPIFY_STORE_DOMAIN` | Store host only, e.g. `balogun-market-nyc.myshopify.com` — not the admin Headless URL |
 | `SHOPIFY_STOREFRONT_ACCESS_TOKEN` | Storefront API access token (public, read-only) |
 | `SHOPIFY_API_VERSION` | Storefront API version (optional; defaults to `2026-07`) |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
@@ -108,20 +111,48 @@ Never commit `.env.local`. Rotate any key that's ever been pasted somewhere publ
 
 Product catalog, inventory, cart, and checkout are handled by Shopify via the Storefront
 API. The Next.js app queries products, keeps cart state on the site, and hands off to
-Shopify's hosted checkout for payment. That keeps the editorial design intact while
-Shopify handles PCI, tax, shipping, and inventory.
+Shopify's hosted checkout for payment.
 
-Designer bios and other brand content that is not a product live in Supabase.
+**Products will not appear on `/shop` until they are published to the Headless sales channel.**
 
-Checkout is live in the stack; end-to-end cart testing and Fashion Week presentation
-content are still on the roadmap.
+In Shopify Admin:
+
+1. Open the product
+2. **Publishing** → enable **Headless** (Headless channel / Hydrogen)
+3. Confirm a price, inventory greater than zero, and at least one image
+4. Reload `/shop`, add to bag, complete a test checkout
+
+Checkout currently opens on the Shopify primary host (`balogunmarketnyc.com`). That is
+correct for payments. The Vercel site is the storefront, not the checkout.
+
+The Shopify Online Store is currently **password-protected** (public catalog returns 401).
+Turn that off before launch: **Shopify Admin → Online Store → Preferences → uncheck
+password protection.** Otherwise customers leaving our bag for checkout may hit a
+password wall on `balogunmarketnyc.com`.
+
+Designer bios and Journal copy that are not products live on the Next.js site.
+
+## Custom domain (Dynadot)
+
+Shopify already uses `balogunmarketnyc.com` as the checkout host. Do **not** add that
+same hostname to Vercel — the site and checkout will fight.
+
+When you have Dynadot login:
+
+1. Keep checkout on `balogunmarketnyc.com` (Shopify) **or** move it to `checkout.balogunmarketnyc.com`
+2. Add **`www.balogunmarketnyc.com`** (or another host you own) in Vercel → Project → Domains
+3. At Dynadot, add the CNAME/A records Vercel shows for **that** host only
+4. Set `NEXT_PUBLIC_SITE_URL` in Vercel to the public storefront URL (the www host)
+
+Never add `*.myshopify.com` in Vercel Domains.
 
 ## Roadmap
 
 - [x] Founding houses live: Y'WANDELAG, Mokhueleigbe
 - [x] Headless Shopify store created
 - [x] Storefront API wiring — site linked live to Shopify
-- [ ] Cart + checkout handoff fully tested end to end
+- [ ] Publish at least one product to the Headless channel and complete a test checkout
+- [ ] Dynadot: point `www` at Vercel; keep Shopify checkout on the apex (or a checkout subdomain)
 - [ ] Fashion Week presentation content
 - [ ] Additional designer onboarding (roster expansion)
 

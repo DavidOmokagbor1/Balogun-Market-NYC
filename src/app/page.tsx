@@ -1,12 +1,20 @@
 import { HeroSection } from "@/components/HeroSection";
+import { CollectionsGrid } from "@/components/CollectionsGrid";
 import { Designers } from "@/components/Designers";
 import { Lookbook } from "@/components/Lookbook";
+import { MasonryGallery } from "@/components/MasonryGallery";
+import { BrandStory } from "@/components/Timeline";
+import { VideoReel } from "@/components/VideoReel";
+import { Membership } from "@/components/Membership";
+import { Journal } from "@/components/Journal";
 import { ProductCard } from "@/components/shop/ProductCard";
 import {
   getProducts,
   isShopifyConfigured,
 } from "@/lib/shopify";
 import type { ShopifyProduct } from "@/types/shopify";
+
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   let products: ShopifyProduct[] = [];
@@ -22,8 +30,14 @@ export default async function Home() {
     <>
       <HeroSection />
       {products.length > 0 && <ShopPreview products={products} />}
+      <CollectionsGrid />
       <Designers />
       <Lookbook />
+      <MasonryGallery />
+      <BrandStory />
+      <VideoReel />
+      <Membership />
+      <Journal />
     </>
   );
 }

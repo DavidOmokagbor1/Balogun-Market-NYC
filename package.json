@@ -2,7 +2,7 @@
   "name": "asa-archive",
   "version": "0.1.0",
   "private": true,
-  "description": "Balogun Market NYC — an AI-native archive and marketplace for African fashion, art, and cultural luxury.",
+  "description": "Balogun Market NYC — a curated luxury marketplace for African fashion.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,12 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
     "@supabase/supabase-js": "^2.47.0",
     "lucide-react": "^1.25.0",
     "motion": "^12.42.2",
     "next": "^15.1.0",
-    "openai": "^4.77.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "zod": "^3.24.1"

@@ -19,7 +19,11 @@ export default async function ShopPage() {
   let products: ShopifyProduct[] = [];
   let error: string | null = null;
 
-  if (isShopifyConfigured) {
+  if (!isShopifyConfigured) {
+    console.error(
+      "Shop page: SHOPIFY_STORE_DOMAIN or SHOPIFY_STOREFRONT_ACCESS_TOKEN is missing."
+    );
+  } else {
     try {
       products = await getProducts();
     } catch (err) {
@@ -88,7 +92,7 @@ export default async function ShopPage() {
         ) : products.length === 0 ? (
           <ShopState
             title="The first drop is being prepared."
-            message="Y'WANDELAG and Mokhueleigbe will appear here. Meet the houses in the meantime."
+            message="Pieces from Y'WANDELAG and Mokhueleigbe will appear here as they are published. Meet the houses in the meantime."
           />
         ) : (
           <>

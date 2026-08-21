@@ -61,7 +61,7 @@ export default async function ProductPage({
           className="catalog-label"
           style={{ textDecoration: "none" }}
         >
-          ← Balogun Market Editions
+          ← The Collection
         </Link>
 
         <div
@@ -188,7 +188,7 @@ export default async function ProductPage({
                     gap: "1rem",
                   }}
                 >
-                  <dt className="catalog-label">Lineage</dt>
+                  <dt className="catalog-label">Notes</dt>
                   <dd
                     style={{
                       margin: 0,

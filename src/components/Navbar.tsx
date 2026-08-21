@@ -9,6 +9,8 @@ const NAV_LINKS = [
   { label: "Shop", href: "/shop" },
   { label: "Designers", href: "/#designers" },
   { label: "Lookbook", href: "/#lookbook" },
+  { label: "Journal", href: "/journal" },
+  { label: "The House", href: "/#story" },
 ];
 
 export function Navbar() {

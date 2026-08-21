@@ -79,7 +79,7 @@ export function ProductPurchase({
               color: "rgba(245,241,232,0.45)",
             }}
           >
-            Edition / Variant
+            Select
           </label>
           <select
             id="variant"

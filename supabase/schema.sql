@@ -1,7 +1,13 @@
 -- ============================================================
--- Balogun Market NYC · Supabase schema
--- Postgres + pgvector foundation for semantic collection search
--- Run this in the Supabase SQL editor (Dashboard → SQL → New query)
+-- LEGACY — do not use for Balogun Market NYC commerce.
+-- The live shop, cart, and checkout are Shopify (Storefront API).
+-- Journal, designers, and lookbook currently live in the Next.js app.
+-- Do not reintroduce embeddings, provenance RPCs, or artifact seeding.
+-- ============================================================
+
+-- ============================================================
+-- Historical schema (Àṣà Archive). Kept so an existing Supabase
+-- project is not silently migrated. Do not run on a new project.
 -- ============================================================
 
 -- 1. Enable pgvector

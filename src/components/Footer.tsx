@@ -19,8 +19,10 @@ export function Footer() {
     {
       heading: "Visit",
       items: [
-        { label: "New York", href: "/" },
-        { label: "The Houses", href: "/#designers" },
+        { label: "The House", href: "/#story" },
+        { label: "Journal", href: "/journal" },
+        { label: "Contact", href: "/contact" },
+        { label: "Policies", href: "/policies" },
       ],
     },
   ];

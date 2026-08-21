@@ -4,7 +4,7 @@ const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
 /**
- * Public client — read-only access (RLS: public select on artifacts).
+ * Public client — read-only access (RLS).
  * Safe to use in Server Components and API routes for reads.
  */
 export const supabase = createClient(url, anonKey);

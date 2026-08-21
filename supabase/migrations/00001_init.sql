@@ -1,8 +1,5 @@
--- ============================================================
--- Balogun Market NYC · Supabase schema
--- Postgres + pgvector foundation for semantic collection search
--- Run this in the Supabase SQL editor (Dashboard → SQL → New query)
--- ============================================================
+-- LEGACY — not used by the live Balogun Market NYC storefront (Shopify).
+-- Do not reintroduce embeddings or provenance. Do not run on a new project.
 
 -- 1. Enable pgvector
 create extension if not exists vector;

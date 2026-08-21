@@ -325,7 +325,7 @@ export async function addToCart(
         userErrors { field message }
       }
     }`,
-    { input: { lines: [{ merchandiseId, quantity }] } }
+    { input: { lines: [{ merchandiseId, quantity }], buyerIdentity: { countryCode: "US" } } }
   );
   assertNoUserErrors(data.cartCreate.userErrors);
   return reshapeCart(data.cartCreate.cart);

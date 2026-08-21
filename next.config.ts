@@ -3,11 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      // Supabase Storage — public bucket for artifact imagery
+      // Shopify product photography
+      { protocol: "https", hostname: "cdn.shopify.com" },
+      { protocol: "https", hostname: "**.shopify.com" },
       { protocol: "https", hostname: "**.supabase.co" },
-      // Seed / design-reference imagery (Unsplash)
-      { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "images.pexels.com" },
     ],
   },
 };
