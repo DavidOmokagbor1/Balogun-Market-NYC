@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useInView } from "motion/react";
+import { shopHref } from "@/lib/shop-taxonomy";
 
 const CATEGORY_META = [
   {
@@ -11,8 +12,8 @@ const CATEGORY_META = [
     count: "Y'WANDELAG",
     span: "tall",
     desc: "Heritage embroidery on minimal, locally made silhouettes — Zubi, Tinko, and tie-dye.",
-    href: "/shop",
-    img: "/designers/ywande-featured.jpg",
+    href: shopHref({ category: "ready-to-wear" }),
+    img: "/designers/ywande-lfw2025-26.jpg",
   },
   {
     id: 2,
@@ -20,7 +21,7 @@ const CATEGORY_META = [
     count: "Mokhueleigbe",
     span: "normal",
     desc: "Bridal, haute, and ready-to-wear from Lekki — heritage cut, modern silhouette.",
-    href: "/shop",
+    href: shopHref({ category: "occasionwear" }),
     img: "/designers/mokhueleigbe-featured.jpg",
   },
   {
@@ -29,8 +30,8 @@ const CATEGORY_META = [
     count: "The Houses",
     span: "normal",
     desc: "Cloth as the first language of the roster — published as each house releases it.",
-    href: "/shop",
-    img: "/designers/ywande-shop.jpg",
+    href: shopHref({ category: "scarves-textiles" }),
+    img: "/designers/ywande-lfw2025-23.jpg",
   },
   {
     id: 4,
@@ -48,7 +49,7 @@ const CATEGORY_META = [
     span: "wide",
     desc: "A lane held for houses chosen for craft. Watch the Journal for the first dated drop.",
     href: "/journal",
-    img: "/designers/ywande-featured.jpg",
+    img: "/designers/ywande-lfw2025-34.jpg",
   },
   {
     id: 6,

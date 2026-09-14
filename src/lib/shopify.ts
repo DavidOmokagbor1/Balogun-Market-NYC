@@ -23,6 +23,10 @@ function normalizeStoreDomain(raw?: string): string | undefined {
 const domain = normalizeStoreDomain(process.env.SHOPIFY_STORE_DOMAIN);
 const accessToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
 const apiVersion = process.env.SHOPIFY_API_VERSION || "2026-07";
+// Shopify primary/checkout host. Apex stays on Shopify; www is the Vercel storefront.
+const checkoutHost =
+  process.env.SHOPIFY_CHECKOUT_HOST?.trim().replace(/^https?:\/\//, "") ||
+  "balogunmarketnyc.com";
 
 export const isShopifyConfigured = Boolean(domain && accessToken);
 
@@ -227,7 +231,25 @@ function reshapeProduct(product: Omit<ShopifyProduct, "images" | "variants"> & {
 function reshapeCart(cart: Omit<ShopifyCart, "lines"> & {
   lines: { nodes: ShopifyCart["lines"] };
 }): ShopifyCart {
-  return { ...cart, lines: cart.lines.nodes };
+  return {
+    ...cart,
+    checkoutUrl: normalizeCheckoutUrl(cart.checkoutUrl),
+    lines: cart.lines.nodes,
+  };
+}
+
+function normalizeCheckoutUrl(url: string): string {
+  if (!url || !checkoutHost) return url;
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname.endsWith(".myshopify.com")) {
+      parsed.hostname = checkoutHost;
+      return parsed.toString();
+    }
+    return url;
+  } catch {
+    return url;
+  }
 }
 
 export async function getProducts(first = 24): Promise<ShopifyProduct[]> {

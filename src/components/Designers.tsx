@@ -3,23 +3,27 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 
+import { shopHref } from "@/lib/shop-taxonomy";
+
 const DESIGNERS = [
   {
     id: 1,
     name: "Y'WANDELAG",
+    house: "ywandelag",
     country: "Nigeria",
     category: "Ready-to-Wear",
     founded: "June 2021, Lagos · Fatima Wande Lagundoye",
     signature: "Heritage embroidery — Zubi, Tinko, and tie-dye — on minimal, locally made silhouettes",
-    collections: ["The Zubi Collection", "Zare Collection", "Lagos Fashion Week 2024"],
-    img: "/designers/ywande-shop.jpg",
-    featured: "/designers/ywande-featured.jpg",
+    collections: ["The Zubi Collection", "Zare Collection", "Lagos Fashion Week 2025"],
+    img: "/designers/ywande-lfw2025-24.jpg",
+    featured: "/designers/ywande-lfw2025-26.jpg",
     quote: "African craft holds endless possibilities when approached with intention and innovation.",
     color: "#C9A86A",
   },
   {
     id: 2,
     name: "Mokhueleigbe",
+    house: "mokhueleigbe",
     country: "Nigeria",
     category: "Occasionwear",
     founded: "2018, Lagos · Margaret Okhueleigbe — as 3&4 Fashion; rebranded 2025",
@@ -57,7 +61,7 @@ export function Designers() {
         </div>
 
         {/* Grid */}
-        <div className="asa-artists-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5px" }}>
+        <div className="asa-designers-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5px" }}>
           {DESIGNERS.map((designer, i) => (
             <motion.div
               key={designer.id}
@@ -97,7 +101,7 @@ export function Designers() {
                 ← Back to Designers
               </button>
 
-              <div className="asa-artist-detail-grid" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "3rem" }}>
+              <div className="asa-designer-detail-grid" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "3rem" }}>
                 <div>
                   <img src={active.img} alt={active.name} style={{ width: "100%", height: "380px", objectFit: "cover", filter: "brightness(0.8)" }} />
                   <div style={{ marginTop: "1.5rem", borderTop: "1px solid rgba(201,168,106,0.15)", paddingTop: "1.5rem" }}>
@@ -121,7 +125,7 @@ export function Designers() {
                   </div>
 
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", padding: "1.25rem 0", borderTop: "1px solid rgba(201,168,106,0.15)" }}>
-                    <a href="/shop" style={{ padding: "0.85rem 2rem", background: "#C9A86A", color: "#0A0A0A", border: "none", fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", cursor: "pointer", textDecoration: "none", display: "inline-block" }}>
+                    <a href={shopHref({ house: active.house })} style={{ padding: "0.85rem 2rem", background: "#C9A86A", color: "#0A0A0A", border: "none", fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", cursor: "pointer", textDecoration: "none", display: "inline-block" }}>
                       Shop the House
                     </a>
                   </div>

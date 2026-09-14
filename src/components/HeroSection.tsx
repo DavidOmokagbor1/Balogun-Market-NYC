@@ -5,8 +5,8 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 const HOUSE_LOOKS = [
   {
-    src: "/designers/ywande-featured.jpg",
-    alt: "Y'WANDELAG at Lagos Fashion Week 2024",
+    src: "/designers/ywande-lfw2025-26.jpg",
+    alt: "Y'WANDELAG at Lagos Fashion Week 2025",
     credit: "Y'WANDELAG",
   },
   {

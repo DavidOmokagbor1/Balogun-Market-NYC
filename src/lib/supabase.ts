@@ -10,8 +10,8 @@ const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 export const supabase = createClient(url, anonKey);
 
 /**
- * Admin client — server-only. Bypasses RLS for writes
- * (catalog ingestion, embedding updates). Never import in client code.
+ * Admin client — server-only. Bypasses RLS for writes.
+ * Never import in client code.
  */
 export function supabaseAdmin() {
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;

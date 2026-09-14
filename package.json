@@ -1,8 +1,8 @@
 {
-  "name": "asa-archive",
+  "name": "balogun-market-nyc",
   "version": "0.1.0",
   "private": true,
-  "description": "Balogun Market NYC — a curated luxury marketplace for African fashion.",
+  "description": "Balogun Market NYC - a curated luxury marketplace for African fashion.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

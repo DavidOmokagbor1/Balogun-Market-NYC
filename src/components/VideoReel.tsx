@@ -6,15 +6,15 @@ import { motion, useInView } from "motion/react";
 
 const REELS = [
   {
-    src: "/designers/ywande-featured.jpg",
+    src: "/designers/ywande-lfw2025-26.jpg",
     house: "Y'WANDELAG",
-    title: "Lagos Fashion Week 2024",
+    title: "Lagos Fashion Week 2025",
     href: "/journal/ywande-lag-studio-lagos",
   },
   {
-    src: "/designers/ywande-shop.jpg",
+    src: "/designers/ywande-studio.jpg",
     house: "Y'WANDELAG",
-    title: "Mallia — studio, Lagos",
+    title: "Zare — studio, Lagos",
     href: "/shop",
   },
   {

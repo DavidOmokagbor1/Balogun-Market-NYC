@@ -21,7 +21,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
       "Y'WANDELAG and Mokhueleigbe open Balogun Market NYC — Lagos-made collections, shown first in New York. What is live now, and what arrives as each house publishes.",
     date: "August 2026",
     readTime: "4 min",
-    img: "/designers/ywande-featured.jpg",
+    img: "/designers/ywande-lfw2025-26.jpg",
     featured: true,
     body: [
       "Balogun Market NYC opens with two houses, not a catalogue of dozens. The roster is the product: designers selected for tailoring, textile, and artisanal excellence, given a world-class platform to be discovered, celebrated, and purchased — starting in New York City.",
@@ -51,14 +51,14 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     category: "House",
     title: "Y'WANDELAG: Heritage Embroidery, Minimal Line",
     excerpt:
-      "Fatima Wande Lagundoye's Lagos studio — Zubi, Tinko, and tie-dye on locally made silhouettes, including the 2024 Lagos Fashion Week runway.",
+      "Fatima Wande Lagundoye's Lagos studio — Zubi, Tinko, and tie-dye on locally made silhouettes, including the 2025 Lagos Fashion Week runway.",
     date: "August 2026",
     readTime: "3 min",
-    img: "/designers/ywande-shop.jpg",
+    img: "/designers/ywande-lfw2025-24.jpg",
     featured: false,
     body: [
       "Y'WANDELAG was founded in June 2021 in Lagos by Fatima Wande Lagundoye. The house is ready-to-wear with a clear signature: heritage embroidery — Zubi, Tinko, and tie-dye — set on minimal, locally made silhouettes.",
-      "The Zubi Collection, Zare Collection, and the Lagos Fashion Week 2024 runway are the lines to know now. African craft, approached with intention and innovation, is the through-line.",
+      "The Zubi Collection, Zare Collection, and the Lagos Fashion Week 2025 runway are the lines to know now. African craft, approached with intention and innovation, is the through-line.",
       "Shop live pieces under Shop the Show. Next-season work from the studio will be posted in this lane before it is merchandised.",
     ],
   },
@@ -86,7 +86,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
       "Why Balogun Market NYC leads with cultural authority and craft — not a trend report, and not an archive of objects.",
     date: "August 2026",
     readTime: "3 min",
-    img: "/designers/ywande-featured.jpg",
+    img: "/designers/ywande-lfw2025-34.jpg",
     featured: false,
     body: [
       "The brief is fashion only. Balogun Market NYC exists to elevate African luxury by giving designers a world-class platform — honoring heritage through curation and storytelling, selecting houses for craft, and connecting them to U.S. consumers, stylists, and editors.",

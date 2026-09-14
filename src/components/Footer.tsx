@@ -5,14 +5,18 @@ export function Footer() {
     {
       heading: "Houses",
       items: [
-        { label: "Y'WANDELAG", href: "/#designers" },
-        { label: "Mokhueleigbe", href: "/#designers" },
+        { label: "Y'WANDELAG", href: "/shop?house=ywandelag" },
+        { label: "Mokhueleigbe", href: "/shop?house=mokhueleigbe" },
       ],
     },
     {
       heading: "Shop",
       items: [
         { label: "The Collection", href: "/shop" },
+        { label: "Ready-to-Wear", href: "/shop?category=ready-to-wear" },
+        { label: "Occasionwear", href: "/shop?category=occasionwear" },
+        { label: "Bridal", href: "/shop?occasion=bridal" },
+        { label: "The Fitting", href: "/fitting" },
         { label: "Lookbook", href: "/#lookbook" },
       ],
     },

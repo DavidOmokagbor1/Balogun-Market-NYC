@@ -52,16 +52,6 @@
   --radius-lg: var(--radius);
   --radius-xl: var(--radius);
 
-  /* Legacy token names used by pre-restore pages (archive, upload,
-     detail). Remapped to the design-reference palette so every page
-     shares one system without per-component restyling. */
-  --color-vat: var(--background);
-  --color-indigo: var(--card);
-  --color-indigo-line: var(--border);
-  --color-ivory: var(--foreground);
-  --color-ivory-dim: var(--muted-foreground);
-  --color-brass: var(--accent);
-
   --font-display: 'Cormorant Garamond', serif;
   --font-body: 'Inter', sans-serif;
   --font-catalog: 'DM Mono', monospace;
@@ -133,6 +123,25 @@ input::placeholder {
 
 /* ── Responsive rules from design-reference App.tsx ── */
 
+.asa-nav-lane,
+.asa-nav-meta {
+  transition: color 0.2s ease;
+}
+.asa-nav-lane:hover {
+  color: #C9A86A;
+}
+.asa-nav-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,241,232,0.45);
+  text-decoration: none;
+}
+.asa-nav-meta:hover {
+  color: #C9A86A;
+}
+
 .asa-desktop-nav {
   display: flex;
 }
@@ -144,6 +153,11 @@ input::placeholder {
 }
 
 /* ── TABLET (≤ 900px) ── */
+@media (max-width: 1100px) {
+  .asa-shop-mega-cols { grid-template-columns: 1fr 1fr !important; }
+  .asa-nav-curtain-grid { grid-template-columns: 1fr !important; gap: 1.75rem !important; }
+}
+
 @media (max-width: 900px) {
   .asa-desktop-nav { display: none !important; }
   .asa-hamburger { display: flex !important; }
@@ -162,10 +176,8 @@ input::placeholder {
   .asa-timeline-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
   .asa-timeline-sidebar { position: relative !important; top: 0 !important; }
 
-  .asa-artists-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .asa-artists-grid > * { height: 360px !important; }
-
-  .asa-exhibition-grid { grid-template-columns: 1fr !important; }
+  .asa-designers-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .asa-designers-grid > * { height: 360px !important; }
 
   .asa-membership-grid { grid-template-columns: 1fr !important; }
 
@@ -174,12 +186,9 @@ input::placeholder {
 
   .asa-footer-grid { grid-template-columns: 1fr 1fr !important; }
 
-  .asa-ai-results-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .asa-brain-split { grid-template-columns: 1fr !important; }
-
   .asa-masonry-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
-  .asa-artist-detail-grid { grid-template-columns: 1fr !important; }
+  .asa-designer-detail-grid { grid-template-columns: 1fr !important; }
 
   .asa-lightbox-inner { flex-direction: column !important; gap: 1.5rem !important; }
   .asa-lightbox-img { max-width: 100% !important; max-height: 50vh !important; }
@@ -187,17 +196,16 @@ input::placeholder {
 
 /* ── MOBILE (≤ 600px) ── */
 @media (max-width: 600px) {
+  .asa-fitting-grid { grid-template-columns: 1fr !important; }
   .asa-shop-grid { grid-template-columns: 1fr !important; }
   .asa-product-gallery { grid-template-columns: 1fr !important; }
 
   .asa-collections-grid { grid-template-columns: 1fr !important; }
   .asa-collections-grid > * { height: 260px !important; }
 
-  .asa-artists-grid { grid-template-columns: 1fr !important; }
+  .asa-designers-grid { grid-template-columns: 1fr !important; }
 
   .asa-masonry-grid { grid-template-columns: 1fr !important; }
-
-  .asa-ai-results-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
   .asa-footer-grid { grid-template-columns: 1fr !important; }
 

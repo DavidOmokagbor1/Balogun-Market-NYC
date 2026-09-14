@@ -1,22 +1,49 @@
 import type { Metadata } from "next";
 import { ProductCard } from "@/components/shop/ProductCard";
+import { ShopFilters } from "@/components/shop/ShopFilters";
 import {
   getProducts,
   isShopifyConfigured,
   ShopifyConfigError,
 } from "@/lib/shopify";
+import {
+  filterProducts,
+  hasActiveFilters,
+  parseShopFilters,
+  shopCopy,
+  shopHref,
+  type ShopFilters as ShopFilterState,
+} from "@/lib/shop-taxonomy";
 import type { ShopifyProduct } from "@/types/shopify";
-
-export const metadata: Metadata = {
-  title: "Shop",
-  description:
-    "Shop the Show — pieces from Y'WANDELAG and Mokhueleigbe at Balogun Market NYC.",
-};
 
 export const dynamic = "force-dynamic";
 
-export default async function ShopPage() {
+type ShopSearchParams = Record<string, string | string[] | undefined>;
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<ShopSearchParams>;
+}): Promise<Metadata> {
+  const filters = parseShopFilters(await searchParams);
+  const copy = shopCopy(filters);
+  return {
+    title: hasActiveFilters(filters) ? `${copy.title.replace(/\.$/, "")} — Shop` : "Shop",
+    description: copy.body,
+  };
+}
+
+export default async function ShopPage({
+  searchParams,
+}: {
+  searchParams: Promise<ShopSearchParams>;
+}) {
+  const filters = parseShopFilters(await searchParams);
+  const copy = shopCopy(filters);
+  const filtered = hasActiveFilters(filters);
+
   let products: ShopifyProduct[] = [];
+  let catalogEmpty = true;
   let error: string | null = null;
 
   if (!isShopifyConfigured) {
@@ -25,7 +52,9 @@ export default async function ShopPage() {
     );
   } else {
     try {
-      products = await getProducts();
+      const all = await getProducts(50);
+      catalogEmpty = all.length === 0;
+      products = filterProducts(all, filters);
     } catch (err) {
       error =
         err instanceof ShopifyConfigError
@@ -48,7 +77,7 @@ export default async function ShopPage() {
       >
         <div style={{ maxWidth: 1400, margin: "0 auto" }}>
           <p className="catalog-label" style={{ margin: "0 0 1.2rem" }}>
-            Shop the Show
+            {copy.eyebrow}
           </p>
           <h1
             style={{
@@ -61,7 +90,7 @@ export default async function ShopPage() {
               color: "#F5F1E8",
             }}
           >
-            The Collection.
+            {copy.title}
           </h1>
           <p
             style={{
@@ -74,9 +103,9 @@ export default async function ShopPage() {
               color: "rgba(245,241,232,0.48)",
             }}
           >
-            Pieces from Y&apos;WANDELAG and Mokhueleigbe — Lagos-made, shown in
-            New York.
+            {copy.body}
           </p>
+          <ShopFilters filters={filters} />
         </div>
       </header>
 
@@ -89,10 +118,16 @@ export default async function ShopPage() {
       >
         {error ? (
           <ShopState title="The collection is temporarily unavailable." message="Please return shortly." />
-        ) : products.length === 0 ? (
+        ) : catalogEmpty ? (
           <ShopState
             title="The first drop is being prepared."
             message="Pieces from Y'WANDELAG and Mokhueleigbe will appear here as they are published. Meet the houses in the meantime."
+          />
+        ) : products.length === 0 ? (
+          <ShopState
+            title="Nothing in this lane yet."
+            message="Pieces publish as each house is ready. Browse the full collection, or meet the houses in the meantime."
+            filters={filters}
           />
         ) : (
           <>
@@ -106,7 +141,7 @@ export default async function ShopPage() {
               }}
             >
               <p className="catalog-label" style={{ margin: 0 }}>
-                Available now
+                {filtered ? "This lane" : "Available now"}
               </p>
               <span
                 style={{
@@ -140,9 +175,11 @@ export default async function ShopPage() {
 function ShopState({
   title,
   message,
+  filters,
 }: {
   title: string;
   message: string;
+  filters?: ShopFilterState;
 }) {
   return (
     <div
@@ -173,19 +210,36 @@ function ShopState({
       >
         {message}
       </p>
-      <a
-        href="/#designers"
-        style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: "0.62rem",
-          letterSpacing: "0.2em",
-          textTransform: "uppercase",
-          color: "#C9A86A",
-          textDecoration: "none",
-        }}
-      >
-        Meet the Designers →
-      </a>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "1.25rem" }}>
+        {filters && (
+          <a
+            href={shopHref()}
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "0.62rem",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "#C9A86A",
+              textDecoration: "none",
+            }}
+          >
+            View all pieces →
+          </a>
+        )}
+        <a
+          href="/#designers"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "0.62rem",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "#C9A86A",
+            textDecoration: "none",
+          }}
+        >
+          Meet the Designers →
+        </a>
+      </div>
     </div>
   );
 }

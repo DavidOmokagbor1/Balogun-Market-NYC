@@ -85,8 +85,7 @@ export default function ContactPage() {
                   color: "rgba(245,241,232,0.35)",
                 }}
               >
-                Mail forwards when the custom domain is live. Until then, this
-                address is the house inbox to publish.
+                Press, partnerships, and house introductions.
               </span>
             </dd>
           </div>

@@ -1,18 +1,28 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { formatMoney } from "@/lib/money";
 import type { ShopifyProductVariant } from "@/types/shopify";
+import { SizeNote } from "@/components/fitting/SizeNote";
 import { AddToCartButton } from "./AddToCartButton";
 
 export function ProductPurchase({
   variants,
+  houseSlug,
 }: {
   variants: ShopifyProductVariant[];
+  houseSlug?: string;
 }) {
   const initialVariant =
     variants.find((variant) => variant.availableForSale) ?? variants[0];
   const [variantId, setVariantId] = useState(initialVariant?.id ?? "");
+  const [touched, setTouched] = useState(false);
+  const applySuggestion = useCallback(
+    (id: string) => {
+      if (!touched) setVariantId(id);
+    },
+    [touched]
+  );
   const selected = useMemo(
     () => variants.find((variant) => variant.id === variantId) ?? initialVariant,
     [initialVariant, variantId, variants]
@@ -34,6 +44,11 @@ export function ProductPurchase({
 
   return (
     <div>
+      <SizeNote
+        houseSlug={houseSlug}
+        variants={variants}
+        onSuggest={applySuggestion}
+      />
       <div
         style={{
           display: "flex",
@@ -84,7 +99,10 @@ export function ProductPurchase({
           <select
             id="variant"
             value={selected.id}
-            onChange={(event) => setVariantId(event.target.value)}
+            onChange={(event) => {
+              setTouched(true);
+              setVariantId(event.target.value);
+            }}
             style={{
               width: "100%",
               minHeight: 48,

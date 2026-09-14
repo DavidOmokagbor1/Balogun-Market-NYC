@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "A curated luxury marketplace bridging African creativity with global fashion culture.",
     siteName: "Balogun Market NYC",
     url: siteUrl,
-    images: [{ url: "/designers/ywande-featured.jpg" }],
+    images: [{ url: "/designers/ywande-lfw2025-26.jpg" }],
     type: "website",
   },
   twitter: {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Balogun Market NYC",
     description:
       "A curated luxury marketplace bridging African creativity with global fashion culture.",
-    images: ["/designers/ywande-featured.jpg"],
+    images: ["/designers/ywande-lfw2025-26.jpg"],
   },
 };
 

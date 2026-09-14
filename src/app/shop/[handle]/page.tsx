@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductPurchase } from "@/components/shop/ProductPurchase";
 import { getProduct, isShopifyConfigured } from "@/lib/shopify";
+import { houseSlugFromText } from "@/lib/shop-taxonomy";
 
 export const dynamic = "force-dynamic";
 
@@ -170,7 +171,12 @@ export default async function ProductPage({
                 borderBottom: "1px solid rgba(245,241,232,0.09)",
               }}
             >
-              <ProductPurchase variants={product.variants} />
+              <ProductPurchase
+                variants={product.variants}
+                houseSlug={houseSlugFromText(
+                  [product.vendor, product.title, product.productType, ...product.tags].join(" ")
+                )}
+              />
             </div>
 
             <dl

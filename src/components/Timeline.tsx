@@ -9,14 +9,14 @@ const PILLARS = [
     title: "Cultural Authority",
     desc: "Honoring African heritage through curation and storytelling — houses chosen with a point of view, not a catalogue of everything.",
     country: "The House",
-    img: "/designers/ywande-featured.jpg",
+    img: "/designers/ywande-lfw2025-26.jpg",
   },
   {
     year: "02",
     title: "Luxury Craftsmanship",
     desc: "Designers selected for tailoring, textile, and artisanal excellence. Y'WANDELAG and Mokhueleigbe set that standard.",
     country: "Lagos",
-    img: "/designers/ywande-shop.jpg",
+    img: "/designers/ywande-lfw2025-24.jpg",
   },
   {
     year: "03",
@@ -37,7 +37,7 @@ const PILLARS = [
     title: "The First Look",
     desc: "Balogun Market NYC launches as a curated luxury marketplace bridging African creativity with global fashion culture. This is the beginning of a new fashion chapter.",
     country: "NYC · 2026",
-    img: "/designers/ywande-featured.jpg",
+    img: "/designers/ywande-lfw2025-03.jpg",
   },
 ];
 
