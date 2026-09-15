@@ -16,6 +16,13 @@ export type CampaignSlide = {
   line: string;
 };
 
+export type HouseFilm = {
+  kind: "video";
+  src: string;
+  poster?: string;
+  alt: string;
+};
+
 export type House = {
   slug: HouseSlug;
   name: string;
@@ -29,7 +36,7 @@ export type House = {
   featured: string;
   quote: string;
   looks: HouseLook[];
-  films?: CampaignSlide[];
+  films?: HouseFilm[];
 };
 
 const YWANDE = {
