@@ -2,23 +2,19 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronRight, Menu, ShoppingBag, X } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
 import { useCart } from "@/components/shop/CartProvider";
-import {
-  FeaturedTile,
-  MobileShopDirectory,
-  NavLane,
-  ShopPanel,
-} from "@/components/shop/ShopMenu";
+import { MobileShopDirectory, ShopPanel } from "@/components/shop/ShopMenu";
 
-type Panel = "shop" | "house" | null;
+const PRIMARY_LINKS = [
+  { label: "Houses", href: "/#designers" },
+  { label: "Journal", href: "/journal" },
+];
 
-const HOUSE_LINKS = [
-  { label: "The Fitting", href: "/fitting", note: "A size for each house." },
-  { label: "Lookbook", href: "/#lookbook", note: "The collection, as seen." },
-  { label: "Journal", href: "/journal", note: "Next season, dated." },
-  { label: "The Story", href: "/#story", note: "Why the house exists." },
-  { label: "Contact", href: "/contact", note: "Press and partners." },
+const MOBILE_LINKS = [
+  { label: "Houses", href: "/#designers" },
+  { label: "Journal", href: "/journal" },
+  { label: "The Fitting", href: "/fitting" },
 ];
 
 const NAV_LINK: CSSProperties = {
@@ -32,190 +28,14 @@ const NAV_LINK: CSSProperties = {
   textDecoration: "none",
 };
 
-function HousePanel({ onNavigate }: { onNavigate: () => void }) {
-  return (
-    <div
-      className="asa-nav-curtain-grid"
-      style={{
-        maxWidth: 1400,
-        margin: "0 auto",
-        padding: "2.25rem clamp(1rem, 4vw, 3rem) 2.6rem",
-        display: "grid",
-        gridTemplateColumns: "minmax(280px, 0.85fr) 1fr",
-        gap: "3rem",
-      }}
-    >
-      <FeaturedTile
-        href="/fitting"
-        img="/designers/ywande-studio.jpg"
-        eyebrow="The Fitting"
-        title="Every house cuts differently."
-        credit="Your measurements · this device"
-        onNavigate={onNavigate}
-      />
-      <div>
-        <span
-          style={{
-            display: "block",
-            fontFamily: "'Inter', sans-serif",
-            fontSize: "0.5rem",
-            letterSpacing: "0.28em",
-            textTransform: "uppercase",
-            color: "#C9A86A",
-            marginBottom: "1.75rem",
-          }}
-        >
-          The House
-        </span>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            maxWidth: 420,
-          }}
-        >
-          {HOUSE_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={onNavigate}
-              className="asa-nav-lane"
-              style={{
-                display: "block",
-                padding: "1rem 0",
-                borderTop: "1px solid rgba(245,241,232,0.08)",
-                textDecoration: "none",
-                color: "#F5F1E8",
-              }}
-            >
-              <span
-                style={{
-                  display: "block",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "1.45rem",
-                  fontWeight: 400,
-                  letterSpacing: "0.02em",
-                }}
-              >
-                {link.label}
-              </span>
-              <span
-                style={{
-                  display: "block",
-                  marginTop: "0.35rem",
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: "0.62rem",
-                  letterSpacing: "0.08em",
-                  color: "rgba(245,241,232,0.38)",
-                }}
-              >
-                {link.note}
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function MobileHouseDirectory({ onNavigate }: { onNavigate: () => void }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div>
-      <a
-        href="/#designers"
-        onClick={onNavigate}
-        style={{
-          display: "block",
-          padding: "1rem 0 0.85rem",
-          fontFamily: "'Cormorant Garamond', serif",
-          fontSize: "1.85rem",
-          fontWeight: 300,
-          color: "#F5F1E8",
-          textDecoration: "none",
-          letterSpacing: "0.04em",
-        }}
-      >
-        Designers
-      </a>
-      <a
-        href="/fitting"
-        onClick={onNavigate}
-        style={{
-          display: "block",
-          padding: "0.35rem 0 1rem",
-          fontFamily: "'Cormorant Garamond', serif",
-          fontSize: "1.85rem",
-          fontWeight: 300,
-          color: "#F5F1E8",
-          textDecoration: "none",
-          letterSpacing: "0.04em",
-        }}
-      >
-        The Fitting
-      </a>
-      <div style={{ borderTop: "1px solid rgba(245,241,232,0.08)" }}>
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          aria-expanded={open}
-          style={{
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "1rem 0 0.85rem",
-            background: "none",
-            border: "none",
-            color: "#F5F1E8",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "1.85rem",
-              fontWeight: 300,
-              letterSpacing: "0.04em",
-            }}
-          >
-            The House
-          </span>
-          <ChevronRight
-            size={16}
-            color="#C9A86A"
-            style={{
-              transform: open ? "rotate(90deg)" : "none",
-              transition: "transform 0.25s ease",
-            }}
-          />
-        </button>
-        {open && (
-          <div style={{ paddingBottom: "0.75rem" }}>
-            {HOUSE_LINKS.filter((link) => link.href !== "/fitting").map((link) => (
-              <NavLane
-                key={link.label}
-                href={link.href}
-                label={link.label}
-                onNavigate={onNavigate}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [panel, setPanel] = useState<Panel>(null);
+  const [panel, setPanel] = useState<"shop" | null>(null);
   const closeTimer = useRef<number | null>(null);
   const { cart, openCart } = useCart();
 
-  const openPanel = (next: Panel) => {
+  const openPanel = (next: "shop" | null) => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
     setPanel(next);
   };
@@ -309,36 +129,24 @@ export function Navbar() {
             >
               Shop
             </a>
-            <a
-              href="/#designers"
-              style={{
-                ...NAV_LINK,
-                color: "rgba(245,241,232,0.55)",
-              }}
-              onMouseEnter={(event) => {
-                event.currentTarget.style.color = "#C9A86A";
-              }}
-              onMouseLeave={(event) => {
-                event.currentTarget.style.color = "rgba(245,241,232,0.55)";
-              }}
-            >
-              Designers
-            </a>
-            <button
-              type="button"
-              aria-expanded={panel === "house"}
-              aria-haspopup="true"
-              onMouseEnter={() => openPanel("house")}
-              onFocus={() => openPanel("house")}
-              onClick={() => openPanel(panel === "house" ? null : "house")}
-              style={{
-                ...NAV_LINK,
-                color: panel === "house" ? "#C9A86A" : "rgba(245,241,232,0.55)",
-                borderBottom: panel === "house" ? "1px solid #C9A86A" : "1px solid transparent",
-              }}
-            >
-              The House
-            </button>
+            {PRIMARY_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                style={{
+                  ...NAV_LINK,
+                  color: "rgba(245,241,232,0.55)",
+                }}
+                onMouseEnter={(event) => {
+                  event.currentTarget.style.color = "#C9A86A";
+                }}
+                onMouseLeave={(event) => {
+                  event.currentTarget.style.color = "rgba(245,241,232,0.55)";
+                }}
+              >
+                {link.label}
+              </a>
+            ))}
             <button
               type="button"
               onClick={openCart}
@@ -460,11 +268,7 @@ export function Navbar() {
                   borderBottom: "1px solid rgba(201,168,106,0.18)",
                 }}
               >
-                {panel === "shop" ? (
-                  <ShopPanel onNavigate={() => setPanel(null)} />
-                ) : (
-                  <HousePanel onNavigate={() => setPanel(null)} />
-                )}
+                {panel === "shop" && <ShopPanel onNavigate={() => setPanel(null)} />}
               </motion.div>
             </motion.div>
           )}
@@ -519,7 +323,25 @@ export function Navbar() {
             </div>
             <MobileShopDirectory onNavigate={() => setMenuOpen(false)} />
             <div style={{ marginTop: "1.25rem", paddingTop: "0.35rem", borderTop: "1px solid rgba(201,168,106,0.15)" }}>
-              <MobileHouseDirectory onNavigate={() => setMenuOpen(false)} />
+              {MOBILE_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  style={{
+                    display: "block",
+                    padding: "1rem 0 0.85rem",
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: "1.85rem",
+                    fontWeight: 300,
+                    color: "#F5F1E8",
+                    textDecoration: "none",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </motion.div>
         )}

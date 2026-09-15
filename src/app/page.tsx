@@ -1,12 +1,5 @@
 import { HeroSection } from "@/components/HeroSection";
-import { CollectionsGrid } from "@/components/CollectionsGrid";
 import { Designers } from "@/components/Designers";
-import { Lookbook } from "@/components/Lookbook";
-import { MasonryGallery } from "@/components/MasonryGallery";
-import { BrandStory } from "@/components/Timeline";
-import { VideoReel } from "@/components/VideoReel";
-import { Membership } from "@/components/Membership";
-import { Journal } from "@/components/Journal";
 import { ProductCard } from "@/components/shop/ProductCard";
 import {
   getProducts,
@@ -30,14 +23,7 @@ export default async function Home() {
     <>
       <HeroSection />
       {products.length > 0 && <ShopPreview products={products} />}
-      <CollectionsGrid />
       <Designers />
-      <Lookbook />
-      <MasonryGallery />
-      <BrandStory />
-      <VideoReel />
-      <Membership />
-      <Journal />
     </>
   );
 }
@@ -96,8 +82,6 @@ function ShopPreview({ products }: { products: ShopifyProduct[] }) {
               }}
             >
               The Collection.
-              <br />
-              <em style={{ fontStyle: "italic", color: "#C9A86A" }}>Shop the Show.</em>
             </h2>
           </div>
           <a
@@ -115,35 +99,18 @@ function ShopPreview({ products }: { products: ShopifyProduct[] }) {
             View all pieces →
           </a>
         </div>
-
-        {products.length > 0 ? (
-          <div
-            className="asa-shop-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-              gap: "clamp(2rem, 4vw, 4rem) clamp(1rem, 2vw, 2rem)",
-            }}
-          >
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        ) : (
-          <p
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "0.85rem",
-              lineHeight: 1.8,
-              color: "rgba(245,241,232,0.45)",
-              maxWidth: "480px",
-              margin: 0,
-            }}
-          >
-            Pieces from Y&apos;WANDELAG and Mokhueleigbe will appear here as they
-            are published to the shop.
-          </p>
-        )}
+        <div
+          className="asa-shop-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+            gap: "clamp(2rem, 4vw, 4rem) clamp(1rem, 2vw, 2rem)",
+          }}
+        >
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </section>
   );

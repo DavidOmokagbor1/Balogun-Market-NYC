@@ -5,8 +5,8 @@ export function Footer() {
     {
       heading: "Houses",
       items: [
-        { label: "Y'WANDELAG", href: "/shop?house=ywandelag" },
-        { label: "Mokhueleigbe", href: "/shop?house=mokhueleigbe" },
+        { label: "Y'WANDELAG", href: "/houses/ywandelag" },
+        { label: "Mokhueleigbe", href: "/houses/mokhueleigbe" },
       ],
     },
     {
@@ -17,13 +17,11 @@ export function Footer() {
         { label: "Occasionwear", href: "/shop?category=occasionwear" },
         { label: "Bridal", href: "/shop?occasion=bridal" },
         { label: "The Fitting", href: "/fitting" },
-        { label: "Lookbook", href: "/#lookbook" },
       ],
     },
     {
       heading: "Visit",
       items: [
-        { label: "The House", href: "/#story" },
         { label: "Journal", href: "/journal" },
         { label: "Contact", href: "/contact" },
         { label: "Policies", href: "/policies" },

@@ -204,6 +204,9 @@ export function ShopPanel({ onNavigate }: { onNavigate: () => void }) {
             <a href={shopHref({ edit: "new-in" })} onClick={onNavigate} className="asa-nav-meta">
               New In
             </a>
+            <a href="/fitting" onClick={onNavigate} className="asa-nav-meta">
+              The Fitting
+            </a>
             <a href="/shop" onClick={onNavigate} className="asa-nav-meta">
               View all →
             </a>
