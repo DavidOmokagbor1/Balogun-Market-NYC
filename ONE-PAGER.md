@@ -3,6 +3,7 @@
 **For press, partners, and investors.** Brand copy is from the deck. Do not invent taglines.
 
 Last updated: 14 September 2026  
+Public site: [www.balogunmarketnyc.com](https://www.balogunmarketnyc.com)  
 Press & partners: [hello@balogunmarketnyc.com](mailto:hello@balogunmarketnyc.com)
 
 ---
@@ -48,7 +49,7 @@ Luxury shoppers looking for newness. Fashion Week attendees. Stylists, editors, 
 
 ## What is live
 
-- Editorial storefront on Vercel — hero, roster, lookbook, Journal, contact, policies
+- Editorial storefront at **www.balogunmarketnyc.com** — hero, roster, lookbook, Journal, contact, policies
 - Headless Shopify — bag, payment, tax, and shipping
 - Journal: next season, pop-ups, house notes, briefs — dated only when true
 - The Fitting (ready to ship): a size for each house, kept on the client’s device
@@ -71,7 +72,7 @@ Four pillars: Cultural Authority · Luxury Craftsmanship · Global Access · Com
 
 ## Where it goes
 
-Near: first SKUs live, a completed purchase, `www` as the storefront, apex as checkout.
+Near: first SKUs live, a completed purchase. Storefront is already **www**; checkout stays on the apex.
 
 Next: Fashion Week presentation, dated pop-ups, a wider roster — after the first sale, not before.
 
@@ -81,7 +82,7 @@ Long: a multi-brand luxury retailer championing African designers, with physical
 
 ## Press note (paste-ready)
 
-Balogun Market NYC is a curated luxury marketplace for African fashion, opening in New York with two founding houses: Y'WANDELAG (Fatima Wande Lagundoye, Lagos) and Mokhueleigbe (Margaret Okhueleigbe, Lekki). The platform exists to elevate African luxury — giving designers a world-class place to be discovered, celebrated, and purchased. Pieces from Lagos Fashion Week and the houses’ studios will appear as they are published. Partners, press, and collaborators: hello@balogunmarketnyc.com. This is the beginning of a new fashion chapter.
+Balogun Market NYC is a curated luxury marketplace for African fashion, opening in New York with two founding houses: Y'WANDELAG (Fatima Wande Lagundoye, Lagos) and Mokhueleigbe (Margaret Okhueleigbe, Lekki). The platform exists to elevate African luxury — giving designers a world-class place to be discovered, celebrated, and purchased. Pieces from Lagos Fashion Week and the houses’ studios will appear as they are published. Partners, press, and collaborators: www.balogunmarketnyc.com · hello@balogunmarketnyc.com. This is the beginning of a new fashion chapter.
 
 ---
 

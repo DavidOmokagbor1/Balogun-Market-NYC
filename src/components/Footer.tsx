@@ -41,6 +41,20 @@ export function Footer() {
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", lineHeight: 1.8, color: "rgba(245,241,232,0.35)", maxWidth: "280px", margin: 0 }}>
               A curated luxury marketplace bridging African creativity with global fashion culture — starting in New York City.
             </p>
+            <a
+              href="https://www.balogunmarketnyc.com"
+              style={{
+                display: "inline-block",
+                marginTop: "1.1rem",
+                fontFamily: "'DM Mono', monospace",
+                fontSize: "0.58rem",
+                letterSpacing: "0.12em",
+                color: "#C9A86A",
+                textDecoration: "none",
+              }}
+            >
+              www.balogunmarketnyc.com
+            </a>
           </div>
 
           {columns.map((column) => (

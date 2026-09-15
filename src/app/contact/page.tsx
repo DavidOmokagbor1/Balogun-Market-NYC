@@ -60,6 +60,27 @@ export default function ContactPage() {
         >
           <div>
             <dt className="catalog-label" style={{ marginBottom: "0.65rem" }}>
+              Online
+            </dt>
+            <dd
+              style={{
+                margin: 0,
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "0.88rem",
+                lineHeight: 1.7,
+                color: "rgba(245,241,232,0.7)",
+              }}
+            >
+              <a
+                href="https://www.balogunmarketnyc.com"
+                style={{ color: "#C9A86A", textDecoration: "none" }}
+              >
+                www.balogunmarketnyc.com
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt className="catalog-label" style={{ marginBottom: "0.65rem" }}>
               Press & partners
             </dt>
             <dd
